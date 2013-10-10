@@ -5,7 +5,7 @@ public class PepperGame extends BasicGame {
     static int height = 480;
     static boolean fullscreen = false;
     static boolean showFPS = true;
-    static String title = "Best Game NA";
+    static String title = "#1 Game NA";
     static int fpslimit = 60;
     private Image basicImage;
     private int mouseX, mouseY;

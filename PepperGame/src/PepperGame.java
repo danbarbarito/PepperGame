@@ -18,7 +18,8 @@ public class PepperGame extends BasicGame {
     @Override
     public void init(GameContainer gc) throws SlickException {
     	basicImage = new Image("data\\image.jpg");
-    	
+    	posX = 200;
+    	posY = 200;
        
     }
     
@@ -27,11 +28,23 @@ public class PepperGame extends BasicGame {
     	Input input = gc.getInput();
     	mouseX = input.getAbsoluteMouseX();
     	mouseY = input.getAbsoluteMouseY();
-    	posX = mouseX;
-    	posY = mouseY;
+    	//posX = mouseX;
+    	//posY = mouseY;
     	if(input.isKeyDown(input.KEY_W))
     	{
-    		posY -= 50;
+    		posY -= 10;
+    	}
+    	if(input.isKeyDown(input.KEY_S))
+    	{
+    		posY += 10;
+    	}
+    	if(input.isKeyDown(input.KEY_D))
+    	{
+    		posX += 10;
+    	}
+    	if(input.isKeyDown(input.KEY_A))
+    	{
+    		posX -= 10;
     	}
     }
  

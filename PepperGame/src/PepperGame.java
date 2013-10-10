@@ -7,9 +7,10 @@ public class PepperGame extends BasicGame {
     static boolean fullscreen = false;
     static boolean showFPS = true;
     static String title = "Neckbeards is gay";
-    static int fpslimit = 68;
+    static int fpslimit = 60;
     private Image basicImage;
-   
+    private int mouseX, mouseY;
+    private int posX, posY;
     public PepperGame(String title) {
         super(title);
     }
@@ -20,15 +21,30 @@ public class PepperGame extends BasicGame {
     	
        
     }
+    
+    public void input(GameContainer gc, int delta) throws SlickException
+    {
+    	Input input = gc.getInput();
+    	mouseX = input.getAbsoluteMouseX();
+    	mouseY = input.getAbsoluteMouseY();
+    	posX = mouseX;
+    	posY = mouseY;
+    	if(input.isKeyDown(input.KEY_W))
+    	{
+    		posY += 50;
+    	}
+    }
  
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
+    	input(gc, delta);
+    	System.out.println(mouseX + "," + mouseY);
        
     }
  
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
-    	basicImage.draw(100, 100);
+    	basicImage.draw(posX-(basicImage.getWidth()/2), posY-(basicImage.getHeight()/2));
     }
    
     public static void main(String[] args) throws SlickException {

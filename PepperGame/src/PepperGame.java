@@ -51,7 +51,7 @@ public class PepperGame extends BasicGame {
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
     	input(gc, delta);
-    	//System.out.println(mouseX + "," + mouseY);
+    	System.out.println(mouseX + "," + mouseY);
        
     }
  

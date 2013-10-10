@@ -57,7 +57,7 @@ public class PepperGame extends BasicGame {
  
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
-    	
+    	basicImage.draw(posX-(basicImage.getWidth()/2), posY-(basicImage.getHeight()/2));
     }
    
     public static void main(String[] args) throws SlickException {

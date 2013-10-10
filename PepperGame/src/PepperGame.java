@@ -27,23 +27,39 @@ public class PepperGame extends BasicGame {
     	Input input = gc.getInput();
     	mouseX = input.getAbsoluteMouseX();
     	mouseY = input.getAbsoluteMouseY();
-    	//posX = mouseX;
-    	//posY = mouseY;
-    	if(input.isKeyDown(input.KEY_W))
+    	//Movement
+    	if(input.isKeyDown(input.KEY_W) || input.isKeyDown(input.KEY_UP))
     	{
     		posY -= 10;
     	}
-    	if(input.isKeyDown(input.KEY_S))
+    	if(input.isKeyDown(input.KEY_S) || input.isKeyDown(input.KEY_DOWN))
     	{
     		posY += 10;
     	}
-    	if(input.isKeyDown(input.KEY_D))
+    	if(input.isKeyDown(input.KEY_D) || input.isKeyDown(input.KEY_RIGHT))
     	{
     		posX += 10;
     	}
-    	if(input.isKeyDown(input.KEY_A))
+    	if(input.isKeyDown(input.KEY_A) || input.isKeyDown(input.KEY_LEFT))
     	{
     		posX -= 10;
+    	}
+    	//Boundaries
+    	if(posX <= basicImage.getWidth()/2)
+    	{
+    		posX = basicImage.getWidth()/2;
+    	}
+    	if(posX >= 640 - basicImage.getWidth()/2)
+    	{
+    		posX = 640 - basicImage.getWidth()/2;
+    	}
+    	if(posY <= basicImage.getHeight()/2)
+    	{
+    		posY = basicImage.getHeight()/2;
+    	}
+    	if(posY >= 480 - basicImage.getHeight()/2)
+    	{
+    		posY = 480 - basicImage.getHeight()/2;
     	}
     }
  
@@ -56,6 +72,7 @@ public class PepperGame extends BasicGame {
  
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
+    	
     	basicImage.draw(posX-(basicImage.getWidth()/2), posY-(basicImage.getHeight()/2));
     }
    

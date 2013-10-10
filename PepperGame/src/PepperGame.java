@@ -6,8 +6,8 @@ public class PepperGame extends BasicGame {
    
     static boolean fullscreen = false;
     static boolean showFPS = true;
-    static String title = "Slick2D Basic Game Template";
-    static int fpslimit = 40;
+    static String title = "Neckbeards is gay";
+    static int fpslimit = 68;
    
     public PepperGame(String title) {
         super(title);

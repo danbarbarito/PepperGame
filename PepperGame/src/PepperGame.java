@@ -8,6 +8,7 @@ public class PepperGame extends BasicGame {
     static boolean showFPS = true;
     static String title = "Neckbeards is gay";
     static int fpslimit = 68;
+    private Image basicImage;
    
     public PepperGame(String title) {
         super(title);
@@ -15,6 +16,8 @@ public class PepperGame extends BasicGame {
  
     @Override
     public void init(GameContainer gc) throws SlickException {
+    	basicImage = new Image("data\\image.jpg");
+    	
        
     }
  
@@ -25,7 +28,7 @@ public class PepperGame extends BasicGame {
  
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
-       
+    	basicImage.draw(100, 100);
     }
    
     public static void main(String[] args) throws SlickException {

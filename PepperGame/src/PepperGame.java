@@ -6,7 +6,7 @@ public class PepperGame extends BasicGame {
    
     static boolean fullscreen = false;
     static boolean showFPS = true;
-    static String title = "Neckbeards is gay";
+    static String title = "Neckbeards is not gay";
     static int fpslimit = 60;
     private Image basicImage;
     private int mouseX, mouseY;

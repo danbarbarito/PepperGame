@@ -31,7 +31,7 @@ public class PepperGame extends BasicGame {
     	posY = mouseY;
     	if(input.isKeyDown(input.KEY_W))
     	{
-    		posY += 50;
+    		posY -= 50;
     	}
     }
  

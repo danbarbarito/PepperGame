@@ -3,7 +3,6 @@ public class PepperGame extends BasicGame {
  
     static int width = 640;
     static int height = 480;
-   
     static boolean fullscreen = false;
     static boolean showFPS = true;
     static String title = "Best Game NA";
@@ -51,7 +50,7 @@ public class PepperGame extends BasicGame {
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
     	input(gc, delta);
-    	//System.out.println(mouseX + "," + mouseY);
+    	System.out.println(mouseX + "," + mouseY);
        
     }
  

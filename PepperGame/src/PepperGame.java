@@ -6,7 +6,7 @@ public class PepperGame {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("How to make game");
+		System.out.println("neckbeards is gay");
 	}
 
 }

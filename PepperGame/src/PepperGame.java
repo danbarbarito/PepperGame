@@ -93,6 +93,7 @@ public class PepperGame extends BasicGame {
         app.setSmoothDeltas(true);
         app.setTargetFrameRate(fpslimit);
         app.setShowFPS(showFPS);
+        app.setVSync(true);
         app.start();
     }
    

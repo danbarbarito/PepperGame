@@ -10,15 +10,27 @@ public class PepperGame extends BasicGame {
     private Image basicImage;
     private int mouseX, mouseY;
     private int posX, posY;
+    private String osName;
     public PepperGame(String title) {
         super(title);
     }
  
     @Override
     public void init(GameContainer gc) throws SlickException {
-    	basicImage = new Image("data\\image.jpg");
+    	//Load image depending on Operating System
+    	osName = System.getProperty("os.name");
+    	if(osName.contains("Windows"))
+    	{
+    		basicImage = new Image("data\\image.jpg");
+    	}
+    	else
+    	{
+    	basicImage = new Image("data/image.jpg");
+    	}
+    	//Set initial position of image
     	posX = 200;
     	posY = 200;
+    	
        
     }
     
@@ -66,7 +78,6 @@ public class PepperGame extends BasicGame {
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
     	input(gc, delta);
-    	System.out.println(mouseX + "," + mouseY);
        
     }
  

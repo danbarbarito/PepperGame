@@ -17,7 +17,11 @@
 	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/natives-linux.jar"/>
 	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/natives-mac.jar"/>
 	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/natives-windows.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/slick.jar"/>
+	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/slick.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/usr/lib/slick2d/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/slick-examples.jar"/>
 	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/tinylinepp.jar"/>
 	<classpathentry kind="output" path="bin"/>

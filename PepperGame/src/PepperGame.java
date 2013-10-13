@@ -7,7 +7,7 @@ public class PepperGame extends BasicGame {
     static boolean showFPS = true;
     static String title = "#1 Game NA";
     static int fpslimit = 60;
-    private Image basicImage;
+    private Image character;
     private int mouseX, mouseY;
     private int posX, posY;
     private String osName;
@@ -17,15 +17,17 @@ public class PepperGame extends BasicGame {
  
     @Override
     public void init(GameContainer gc) throws SlickException {
-    	//Load image depending on Operating System
+    	//Load images depending on Operating System
     	osName = System.getProperty("os.name");
     	if(osName.contains("Windows"))
     	{
-    		basicImage = new Image("data\\image.jpg");
+    		//Character
+    		character = new Image("data\\character.png");
     	}
     	else
     	{
-    	basicImage = new Image("data/image.jpg");
+    		//Character
+    		character = new Image("data/character.png");
     	}
     	//Set initial position of image
     	posX = 200;
@@ -57,21 +59,21 @@ public class PepperGame extends BasicGame {
     		posX -= 10;
     	}
     	//Boundaries
-    	if(posX <= basicImage.getWidth()/2)
+    	if(posX <= character.getWidth()/2)
     	{
-    		posX = basicImage.getWidth()/2;
+    		posX = character.getWidth()/2;
     	}
-    	if(posX >= 640 - basicImage.getWidth()/2)
+    	if(posX >= 640 - character.getWidth()/2)
     	{
-    		posX = 640 - basicImage.getWidth()/2;
+    		posX = 640 - character.getWidth()/2;
     	}
-    	if(posY <= basicImage.getHeight()/2)
+    	if(posY <= character.getHeight()/2)
     	{
-    		posY = basicImage.getHeight()/2;
+    		posY = character.getHeight()/2;
     	}
-    	if(posY >= 480 - basicImage.getHeight()/2)
+    	if(posY >= 480 - character.getHeight()/2)
     	{
-    		posY = 480 - basicImage.getHeight()/2;
+    		posY = 480 - character.getHeight()/2;
     	}
     }
  
@@ -84,7 +86,7 @@ public class PepperGame extends BasicGame {
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
     	
-    	basicImage.draw(posX-(basicImage.getWidth()/2), posY-(basicImage.getHeight()/2));
+    	character.draw(posX-(character.getWidth()/2), posY-(character.getHeight()/2));
     }
    
     public static void main(String[] args) throws SlickException {

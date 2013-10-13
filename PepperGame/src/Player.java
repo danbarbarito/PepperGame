@@ -3,8 +3,15 @@ public class Player {
 	
 	static public int posX, posY;
 	static public Image image;
+	private int startingPosX, startingPosY;
+	private int speed;
 	public Player(String fn) throws SlickException{
 		image = new Image(fn);
+		startingPosX = 20;
+		startingPosY = 480;
+		posX = startingPosX;
+		posY = startingPosY;
+		speed = 5;
 	}
 	/**
 	 * @param args
@@ -13,24 +20,24 @@ public class Player {
 		// TODO Auto-generated method stub
 
 	}
-	public static void move(Input input)
+	public void move(Input input)
 	{
     	//Movement
     	if(input.isKeyDown(input.KEY_W) || input.isKeyDown(input.KEY_UP))
     	{
-    		posY -= 10;
+    		jump();
     	}
     	if(input.isKeyDown(input.KEY_S) || input.isKeyDown(input.KEY_DOWN))
     	{
-    		posY += 10;
+    		posY += speed;
     	}
     	if(input.isKeyDown(input.KEY_D) || input.isKeyDown(input.KEY_RIGHT))
     	{
-    		posX += 10;
+    		posX += speed;
     	}
     	if(input.isKeyDown(input.KEY_A) || input.isKeyDown(input.KEY_LEFT))
     	{
-    		posX -= 10;
+    		posX -= speed;
     	}
     	//Boundaries
     	if(posX <= 0)
@@ -53,6 +60,11 @@ public class Player {
 	public void draw()
 	{
 		image.draw(posX, posY);
+	}
+	public void jump()
+	{
+		//The character does a rotating jump
+		System.out.println("Jump! (The code still has to be written for this)");
 	}
 
 }

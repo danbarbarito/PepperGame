@@ -38,7 +38,7 @@ public class PepperGame extends BasicGame {
     	Input input = gc.getInput();
     	mouseX = input.getAbsoluteMouseX();
     	mouseY = input.getAbsoluteMouseY();
-    	Player.move(input);
+    	character.move(input);
 
     }
  

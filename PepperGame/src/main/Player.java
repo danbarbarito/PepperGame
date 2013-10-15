@@ -7,7 +7,8 @@ public class Player{
 	static public Image image;
 	public int startingPosX, startingPosY;
 	public int speed;
-	
+	public Camera camera;
+	public boolean isRotating;
 	public Player(String fn) throws SlickException{
 		image = new Image(fn);
 		startingPosX = 400;
@@ -53,7 +54,16 @@ public class Player{
     	{
     		posY = 480 - image.getHeight();
     	}
+    	if(input.isKeyDown(input.KEY_E) || input.isKeyDown(input.KEY_Q))
+    	{
+    		isRotating = true;
+    	}
+    	else
+    	{
+    		isRotating = false;
+    	}
 	}
+	
 	public void draw()
 	{
 		image.draw(posX, posY);

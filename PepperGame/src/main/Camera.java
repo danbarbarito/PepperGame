@@ -17,13 +17,13 @@ public class Camera {
 	
 	public void scale(Graphics g, int screenWidth, int screenHeight)
 	{
-		camCenterX = screenWidth/scale/2f - player.posX;
-		camCenterY = screenHeight/scale/2f - player.posY;
+		camCenterX = screenWidth/scale/2f - (player.posX + player.image.getWidth()/2);
+		camCenterY = screenHeight/scale/2f - (player.posY + player.image.getHeight()/2);
 		g.scale(scale, scale);
 		g.translate(camCenterX, camCenterY);
 		
 	}
-	
+
 	public void changeScale(boolean positive)
 	{
 		if(positive == true)

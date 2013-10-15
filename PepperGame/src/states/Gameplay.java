@@ -47,7 +47,8 @@ public class Gameplay extends BasicGameState{
     	pe = new Particles();
 	}
 	
-    public void input(GameContainer gc) throws SlickException
+	
+    public void input(GameContainer gc, Graphics g) throws SlickException
     {
     	Input input = gc.getInput();
     	mouseX = input.getAbsoluteMouseX();
@@ -72,10 +73,17 @@ public class Gameplay extends BasicGameState{
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		//Input
+		input(container, g);
+		//Set camera scale
     	camera.scale(g, width, height);
+    	//Draw background
     	background.draw(0,0,width,height);
-    	character.draw();
+    	//Move and render particles
+    	pe.setPosition(character.posX + character.image.getWidth()/2, character.posY + character.image.getHeight()/2);
     	pe.render();
+    	//Draw character
+    	character.draw();
     	g.resetTransform();
 		
 	}
@@ -83,7 +91,6 @@ public class Gameplay extends BasicGameState{
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
-		input(container);
     	pe.update(delta);
 		
 	}

@@ -1,3 +1,4 @@
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 public class Player{
 	
@@ -5,14 +6,16 @@ public class Player{
 	static public Image image;
 	public int startingPosX, startingPosY;
 	public int speed;
+	
 	public Player(String fn) throws SlickException{
 		image = new Image(fn);
 		startingPosX = 100;
 		startingPosY = 100;
 		posX = startingPosX;
 		posY = startingPosY;
-		speed = 5;
+		speed = 3;
 	}
+	
 	/**
 	 * @param args
 	 */

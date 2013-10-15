@@ -60,6 +60,19 @@ public class PepperGame extends BasicGame {
     	character.draw();
     	g.resetTransform();
     }
+    
+    @Override
+    public void mouseWheelMoved(int change)
+    {
+    	if(change>=0)
+    	{
+    		camera.changeScale(true);
+    	}
+    	if(change<0)
+    	{
+    		camera.changeScale(false);
+    	}
+    }
    
     public static void main(String[] args) throws SlickException {
         AppGameContainer app = new AppGameContainer(new PepperGame(title));

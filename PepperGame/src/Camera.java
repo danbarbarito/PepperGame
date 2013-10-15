@@ -22,6 +22,18 @@ public class Camera {
 		g.translate(camCenterX, camCenterY);
 		
 	}
+	
+	public void changeScale(boolean positive)
+	{
+		if(positive == true)
+		{
+			scale += .1f;
+		}
+		else
+		{
+			scale -= .1f;
+		}
+	}
 	/**
 	 * @param args
 	 */

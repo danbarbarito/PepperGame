@@ -1,7 +1,17 @@
+package states;
+
+import main.Camera;
+import main.Particles;
+import main.PepperGame;
+import main.Player;
+
 import org.newdawn.slick.*;
-public class PepperGame extends BasicGame {
- 
-    static int width = 640;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+
+public class Gameplay extends BasicGameState{
+	
+	static int width = 640;
     static int height = 480;
     static boolean fullscreen = false;
     static boolean showFPS = true;
@@ -12,14 +22,12 @@ public class PepperGame extends BasicGame {
     private String osName;
     private Camera camera;
     private Image background;
-    
-    public PepperGame(String title) {
-        super(title);
-    }
- 
-    @Override
-    public void init(GameContainer gc) throws SlickException {
-    	//Load images depending on Operating System
+    public Particles pe;
+	
+	@Override
+	public void init(GameContainer container, StateBasedGame game)
+			throws SlickException {
+		//Load images depending on Operating System
     	osName = System.getProperty("os.name");
     	if(osName.contains("Windows"))
     	{
@@ -36,9 +44,9 @@ public class PepperGame extends BasicGame {
     		background = new Image("data/background.jpg", false, Image.FILTER_NEAREST);
     	}
     	camera = new Camera(character);
-       
-    }
-    
+    	pe = new Particles();
+	}
+	
     public void input(GameContainer gc) throws SlickException
     {
     	Input input = gc.getInput();
@@ -46,19 +54,6 @@ public class PepperGame extends BasicGame {
     	mouseY = input.getAbsoluteMouseY();
     	character.move(input);
 
-    }
- 
-    @Override
-    public void update(GameContainer gc, int delta) throws SlickException {
-    	input(gc);
-    }
- 
-    @Override
-    public void render(GameContainer gc, Graphics g) throws SlickException {
-    	camera.scale(g, width, height);
-    	background.draw(0,0,width,height);
-    	character.draw();
-    	g.resetTransform();
     }
     
     @Override
@@ -73,16 +68,30 @@ public class PepperGame extends BasicGame {
     		camera.changeScale(false);
     	}
     }
-   
-    public static void main(String[] args) throws SlickException {
-        AppGameContainer app = new AppGameContainer(new PepperGame(title));
-        app.setDisplayMode(width, height, fullscreen);
-        app.setSmoothDeltas(true);
-        app.setTargetFrameRate(fpslimit);
-        app.setShowFPS(showFPS);
-        app.setVSync(true);
-        app.start();
-    }
-   
-}
+    
+	@Override
+	public void render(GameContainer container, StateBasedGame game, Graphics g)
+			throws SlickException {
+    	camera.scale(g, width, height);
+    	background.draw(0,0,width,height);
+    	character.draw();
+    	pe.render();
+    	g.resetTransform();
+		
+	}
 
+	@Override
+	public void update(GameContainer container, StateBasedGame game, int delta)
+			throws SlickException {
+		input(container);
+    	pe.update(delta);
+		
+	}
+
+	@Override
+	public int getID() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

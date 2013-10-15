@@ -1,3 +1,4 @@
+package main;
 import org.newdawn.slick.*;
 public class Camera {
 	
@@ -33,13 +34,6 @@ public class Camera {
 		{
 			scale -= .1f;
 		}
-	}
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

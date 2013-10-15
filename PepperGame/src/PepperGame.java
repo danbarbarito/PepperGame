@@ -10,6 +10,8 @@ public class PepperGame extends BasicGame {
     private Player character;
     private int mouseX, mouseY;
     private String osName;
+    private Camera camera;
+    private Image background;
     
     public PepperGame(String title) {
         super(title);
@@ -23,17 +25,21 @@ public class PepperGame extends BasicGame {
     	{
     		//Character
     		character = new Player("data\\character.png");
+    		//Background
+    		background = new Image("data\\background.jpg", false, Image.FILTER_NEAREST);
     	}
     	else
     	{
     		//Character
     		character = new Player("data/character.png");
+    		//Background
+    		background = new Image("data/background.jpg", false, Image.FILTER_NEAREST);
     	}
-    	
+    	camera = new Camera(character);
        
     }
     
-    public void input(GameContainer gc, int delta) throws SlickException
+    public void input(GameContainer gc) throws SlickException
     {
     	Input input = gc.getInput();
     	mouseX = input.getAbsoluteMouseX();
@@ -44,13 +50,15 @@ public class PepperGame extends BasicGame {
  
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
-    	input(gc, delta);
-       
+    	input(gc);
     }
  
     @Override
     public void render(GameContainer gc, Graphics g) throws SlickException {
+    	camera.scale(g, width, height);
+    	background.draw(0,0,width,height);
     	character.draw();
+    	g.resetTransform();
     }
    
     public static void main(String[] args) throws SlickException {

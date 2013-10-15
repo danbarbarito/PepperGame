@@ -1,14 +1,14 @@
 import org.newdawn.slick.*;
-public class Player {
+public class Player{
 	
-	static public int posX, posY;
+	public int posX, posY;
 	static public Image image;
-	private int startingPosX, startingPosY;
-	private int speed;
+	public int startingPosX, startingPosY;
+	public int speed;
 	public Player(String fn) throws SlickException{
 		image = new Image(fn);
-		startingPosX = 20;
-		startingPosY = 480;
+		startingPosX = 100;
+		startingPosY = 100;
 		posX = startingPosX;
 		posY = startingPosY;
 		speed = 5;
@@ -25,7 +25,7 @@ public class Player {
     	//Movement
     	if(input.isKeyDown(input.KEY_W) || input.isKeyDown(input.KEY_UP))
     	{
-    		jump();
+    		posY -= speed;
     	}
     	if(input.isKeyDown(input.KEY_S) || input.isKeyDown(input.KEY_DOWN))
     	{
@@ -64,7 +64,7 @@ public class Player {
 	public void jump()
 	{
 		//The character does a rotating jump
-		System.out.println("Jump! (The code still has to be written for this)");
+		//System.out.println("Jump! (The code still has to be written for this)");
 	}
 
 }

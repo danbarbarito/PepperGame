@@ -3,14 +3,14 @@ public class Camera {
 	
 	public int centerX, centerY;
 	public Player player;
-	public int scale;
+	public float scale;
 	public float camCenterX;
 	public float camCenterY;
 	
 	public Camera(Player p)
 	{
 		player = p;
-		scale = 2;
+		scale = 2f;
 		
 	}
 	

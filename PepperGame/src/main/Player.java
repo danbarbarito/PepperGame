@@ -1,14 +1,17 @@
 package main;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Shape;
 public class Player{
 	
 	public int posX, posY;
-	static public Image image;
+	public Image image;
 	public int startingPosX, startingPosY;
 	public int speed;
 	public Camera camera;
 	public boolean isRotating;
+	public Shape boundingBox;
 	public Player(String fn) throws SlickException{
 		image = new Image(fn);
 		startingPosX = 400;
@@ -16,24 +19,25 @@ public class Player{
 		posX = startingPosX;
 		posY = startingPosY;
 		speed = 3;
+		boundingBox = new Rectangle(posX, posY, 32, 32);
 	}
 	
 	public void move(Input input)
 	{
     	//Movement
-    	if(input.isKeyDown(input.KEY_W) || input.isKeyDown(input.KEY_UP))
+    	if(input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP))
     	{
     		posY -= speed;
     	}
-    	if(input.isKeyDown(input.KEY_S) || input.isKeyDown(input.KEY_DOWN))
+    	if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN))
     	{
     		posY += speed;
     	}
-    	if(input.isKeyDown(input.KEY_D) || input.isKeyDown(input.KEY_RIGHT))
+    	if(input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT))
     	{
     		posX += speed;
     	}
-    	if(input.isKeyDown(input.KEY_A) || input.isKeyDown(input.KEY_LEFT))
+    	if(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT))
     	{
     		posX -= speed;
     	}
@@ -54,7 +58,7 @@ public class Player{
     	{
     		posY = 480 - image.getHeight();
     	}
-    	if(input.isKeyDown(input.KEY_E) || input.isKeyDown(input.KEY_Q))
+    	if(input.isKeyDown(Input.KEY_E) || input.isKeyDown(Input.KEY_Q))
     	{
     		isRotating = true;
     	}
@@ -66,6 +70,7 @@ public class Player{
 	
 	public void draw()
 	{
+		boundingBox.setLocation(posX, posY);
 		image.draw(posX, posY);
 	}
 	public void jump()

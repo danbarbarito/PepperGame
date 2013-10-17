@@ -2,27 +2,27 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/ibxm.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/jinput.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/jnlp.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/jogg-0.0.7.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/jorbis-0.0.15.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/lwjgl.jar">
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/ibxm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/jinput.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/jnlp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/lwjgl.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/usr/lib/lwjgl/native/linux"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/danielbarbarito/Documents/Libs/lwjgl-2.9.0/native/windows"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/lwjgl_util_applet.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/natives-linux.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/natives-mac.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/natives-windows.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/slick.jar">
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/lwjgl_util_applet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/natives-linux.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/natives-mac.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/natives-windows.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/slick.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="file:/usr/lib/slick2d/javadoc/"/>
+			<attribute name="javadoc_location" value="file:/C:/Users/danielbarbarito/Documents/Libs/slick2d/javadoc/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/slick-examples.jar"/>
-	<classpathentry kind="lib" path="/usr/lib/slick2d/lib/tinylinepp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/slick-examples.jar"/>
+	<classpathentry kind="lib" path="C:/Users/danielbarbarito/Documents/Libs/slick2d/lib/tinylinepp.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -11,7 +11,7 @@ public class Camera {
 	public Camera(Player p)
 	{
 		player = p;
-		scale = 2f;
+		scale = 1.2f;
 		
 	}
 	

@@ -1,6 +1,7 @@
 package states;
 
 import main.Camera;
+import main.Enemy;
 import main.Particles;
 import main.PepperGame;
 import main.Player;
@@ -23,6 +24,7 @@ public class Gameplay extends BasicGameState{
     private Camera camera;
     private Image background;
     public Particles pe;
+    public Enemy enemy;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -45,6 +47,7 @@ public class Gameplay extends BasicGameState{
     	}
     	camera = new Camera(character);
     	pe = new Particles();
+    	enemy = new Enemy();
 	}
 	
 	
@@ -84,6 +87,9 @@ public class Gameplay extends BasicGameState{
     	pe.render();
     	//Draw character
     	character.draw();
+    	//Draw Enemies
+    	enemy.spawn(g);
+    	System.out.println(enemy.collides(character.boundingBox));
     	g.resetTransform();
 		
 	}

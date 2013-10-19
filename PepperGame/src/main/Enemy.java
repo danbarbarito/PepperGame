@@ -4,24 +4,24 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
 import java.util.Random;
-
+import org.newdawn.slick.*;
 public class Enemy {
 	//public int spawnrate;
 	public Random r;
 	public int[] posX, posY;
 	public Image[] enemy;
 	public int numberOfEnemies;
-	public Shape[] boundingBox;
+	public Rectangle[] boundingBox;
 	public Enemy()
 	{
 		r = new Random();
 		numberOfEnemies = 5;
-		posX = new int[numberOfEnemies+1];
-		posY = new int[numberOfEnemies+1];
-		boundingBox = new Shape[numberOfEnemies+1];
-		enemy = new Image[numberOfEnemies+1];
+		posX = new int[numberOfEnemies];
+		posY = new int[numberOfEnemies];
+		boundingBox = new Rectangle[numberOfEnemies];
+		enemy = new Image[100];
 		try {
-			for(int x=1;x<=numberOfEnemies;x++)
+			for(int x=0;x<numberOfEnemies;x++)
 			{
 				posX[x] = r.nextInt(640-8);
 				posY[x] = r.nextInt(480-8);
@@ -33,18 +33,14 @@ public class Enemy {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void spawn(Graphics g)
 	{
-		for(int x=1;x<=numberOfEnemies;x++)
+		for(int x=0;x<numberOfEnemies;x++)
 		{
 			g.drawImage(enemy[x], posX[x], posY[x]);
 		}
 	}
-	
-	public boolean collides(Shape shape)
-	{
-		//Check if collides
-		return false;
-	}
+
+
 }

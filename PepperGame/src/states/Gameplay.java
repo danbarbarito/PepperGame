@@ -1,11 +1,6 @@
 package states;
 
-import main.Camera;
-import main.Enemy;
-import main.Particles;
-import main.PepperGame;
-import main.Player;
-
+import main.*;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -25,29 +20,21 @@ public class Gameplay extends BasicGameState{
     private Image background;
     public Particles pe;
     public Enemy enemy;
+	public Logic logic;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		//Load images depending on Operating System
     	osName = System.getProperty("os.name");
-    	if(osName.contains("Windows"))
-    	{
-    		//Character
-    		character = new Player("data\\character.png");
-    		//Background
-    		background = new Image("data\\background.jpg", false, Image.FILTER_NEAREST);
-    	}
-    	else
-    	{
-    		//Character
-    		character = new Player("data/character.png");
-    		//Background
-    		background = new Image("data/background.jpg", false, Image.FILTER_NEAREST);
-    	}
+    	//Character
+    	character = new Player("data/character.png");
+    	//Background
+    	background = new Image("data/background.jpg", false, Image.FILTER_NEAREST);
     	camera = new Camera(character);
     	pe = new Particles();
     	enemy = new Enemy();
+    	logic = new Logic();
 	}
 	
 	
@@ -57,7 +44,7 @@ public class Gameplay extends BasicGameState{
     	mouseX = input.getAbsoluteMouseX();
     	mouseY = input.getAbsoluteMouseY();
     	character.move(input);
-
+    	logic.logic(character, enemy);
     }
     
     @Override
@@ -89,7 +76,6 @@ public class Gameplay extends BasicGameState{
     	character.draw();
     	//Draw Enemies
     	enemy.spawn(g);
-    	System.out.println(enemy.collides(character.boundingBox));
     	g.resetTransform();
 		
 	}
@@ -98,6 +84,7 @@ public class Gameplay extends BasicGameState{
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
     	pe.update(delta);
+
 		
 	}
 

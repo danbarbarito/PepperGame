@@ -1,6 +1,7 @@
 package main;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 public class Player{
@@ -11,7 +12,7 @@ public class Player{
 	public int speed;
 	public Camera camera;
 	public boolean isRotating;
-	public Shape boundingBox;
+	public Rectangle boundingBox;
 	public Player(String fn) throws SlickException{
 		image = new Image(fn);
 		startingPosX = 400;
@@ -58,19 +59,11 @@ public class Player{
     	{
     		posY = 480 - image.getHeight();
     	}
-    	if(input.isKeyDown(Input.KEY_E) || input.isKeyDown(Input.KEY_Q))
-    	{
-    		isRotating = true;
-    	}
-    	else
-    	{
-    		isRotating = false;
-    	}
 	}
 	
 	public void draw()
 	{
-		boundingBox.setLocation(posX, posY);
+		boundingBox = new Rectangle(posX, posY, 32, 32);
 		image.draw(posX, posY);
 	}
 	public void jump()

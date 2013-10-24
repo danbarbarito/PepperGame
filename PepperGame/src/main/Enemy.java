@@ -76,6 +76,11 @@ public class Enemy {
 			boundingBox[x].setY(posY[x]);
 		}
 	}
+	public void removeEnemy(int x) throws SlickException
+	{
+		boundingBox[x].setLocation(-100, -100);
+		enemy[x].setAlpha(0);
+	}
 
 
 }

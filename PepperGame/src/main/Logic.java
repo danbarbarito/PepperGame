@@ -10,6 +10,9 @@ public class Logic {
 	//F's FALL FROM SKY
 	//EACH F CAUSES THE LOSS OF .1 GPA
 	//Some A's will appear in the middle area and cause your GPA to go up!
+	//Tutor zones passively give GPA
+	//Extra credit
+	
 	public double gpa;
 	public DecimalFormat df;
 	public String gpaString;
@@ -56,6 +59,12 @@ public class Logic {
 		{
 			if(player.boundingBox.intersects(enemy.boundingBox[x]))
 			{
+				try {
+					enemy.removeEnemy(x);
+				} catch (SlickException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				return true;
 			}
 		}

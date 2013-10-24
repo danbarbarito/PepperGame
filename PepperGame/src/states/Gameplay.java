@@ -72,17 +72,13 @@ public class Gameplay extends BasicGameState{
     	//Draw background
     	background.draw(0,0,width,height);
     	//Move and render particles
-    	//pe.setPosition(character.posX + character.image.getWidth()/2, character.posY + character.image.getHeight()/2);
-    	for(int x=0;x<enemy.numberOfEnemies;x++)
-		{
-			pe.setPosition(enemy.posX[x], enemy.posY[x]);
-
-		}
+    	pe.setPosition(character.posX + character.image.getWidth()/2, character.posY + character.image.getHeight()/2);
     	pe.render();
     	//Draw character
     	character.draw();
     	//Draw Enemies
     	enemy.activate(g);
+    	
     	//Display GPA
     	text.draw(g, "GPA: " + logic.getGPA(character, enemy), 10, 50);
     	g.resetTransform();

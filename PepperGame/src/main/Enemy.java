@@ -24,7 +24,7 @@ public class Enemy {
 			for(int x=0;x<numberOfEnemies;x++)
 			{
 				posX[x] = r.nextInt(640-8);
-				posY[x] = r.nextInt(480-8);
+				posY[x] = 8;
 				boundingBox[x] = new Rectangle(posX[x], posY[x], 16, 16);
 				enemy[x] = new Image("data/enemy.png");
 			}
@@ -39,6 +39,13 @@ public class Enemy {
 		for(int x=0;x<numberOfEnemies;x++)
 		{
 			g.drawImage(enemy[x], posX[x], posY[x]);
+		}
+	}
+	public void fall()
+	{
+		for(int x=0;x<numberOfEnemies;x++)
+		{
+			posY[x]+= 10;
 		}
 	}
 

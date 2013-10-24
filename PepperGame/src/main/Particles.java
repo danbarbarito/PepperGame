@@ -12,20 +12,27 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Particles {
 	public ParticleSystem ps;
-	public ConfigurableEmitter em;
+	public ConfigurableEmitter[] em;
 	public File xmlFile;
 	public Particles()
 	{
 		xmlFile = new File("data/emitter.xml");
 		ps = new ParticleSystem("data/particle.png",1500);
-		em = new ConfigurableEmitter("Basic");
-		try {
-			ParticleIO.saveEmitter(xmlFile, em);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		em = new ConfigurableEmitter[5];
+		for(int x=0;x<5;x++)
+		{
+			em[x] = new ConfigurableEmitter("Basic");
+		
+			/*try {
+				ParticleIO.saveEmitter(xmlFile, em[x]);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+			ps.addEmitter(em[x]);
 		}
-		ps.addEmitter(em);
+		
+		
 		ps.setBlendingMode(ParticleSystem.BLEND_ADDITIVE);
 	}
 	

@@ -5,24 +5,24 @@ import main.*;
 
 public class Logic {
 
-	public int points;
+	public int playerHealth;
 	
 	public Logic()
 	{
-		points = 0;
+		playerHealth = 100;
 	}
 	
 	public void logic(Player player, Enemy enemy)
 	{
-		scorePoint(player, enemy);
+		loseHealth(player, enemy);
 	}
 
-	public void scorePoint(Player player, Enemy enemy)
+	public void loseHealth(Player player, Enemy enemy)
 	{
 		if(collidesWithEnemy(player, enemy))
 		{
-			points += 1;
-			System.out.println("Points: " + points);
+			playerHealth -= 1;
+			System.out.println("Health: " + playerHealth);
 		}
 		
 	}

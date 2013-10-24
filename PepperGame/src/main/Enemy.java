@@ -15,7 +15,7 @@ public class Enemy {
 	public Enemy()
 	{
 		r = new Random();
-		numberOfEnemies = 5;
+		numberOfEnemies = 10;
 		posX = new int[numberOfEnemies];
 		posY = new int[numberOfEnemies];
 		boundingBox = new Rectangle[numberOfEnemies];
@@ -46,8 +46,8 @@ public class Enemy {
 	{
 		for(int x=0;x<numberOfEnemies;x++)
 		{
-			posY[x]+= 1;
-			boundingBox[x].setY(boundingBox[x].getY()+1);
+			posY[x]+= 7;
+			boundingBox[x].setY(boundingBox[x].getY()+7);
 		}
 	}
 	

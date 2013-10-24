@@ -45,7 +45,7 @@ public class Enemy {
 	{
 		for(int x=0;x<numberOfEnemies;x++)
 		{
-			posY[x]+= 10;
+			posY[x]+= 1;
 		}
 	}
 

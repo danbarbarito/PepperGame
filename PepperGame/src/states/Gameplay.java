@@ -75,8 +75,9 @@ public class Gameplay extends BasicGameState{
     	//Draw character
     	character.draw();
     	//Draw Enemies
-    	enemy.spawn(g);
-    	enemy.fall();
+    	//enemy.spawn(g);
+    	//enemy.fall();
+    	enemy.activate(g);
     	g.resetTransform();
 		
 	}

@@ -41,12 +41,37 @@ public class Enemy {
 			g.drawImage(enemy[x], posX[x], posY[x]);
 		}
 	}
+	
 	public void fall()
 	{
 		for(int x=0;x<numberOfEnemies;x++)
 		{
 			posY[x]+= 1;
 			boundingBox[x].setY(boundingBox[x].getY()+1);
+		}
+	}
+	
+	public void activate(Graphics g)
+	{
+		spawn(g);
+		fall();
+		for(int x=0;x<numberOfEnemies;x++)
+		{
+			if(posY[x] >= 400)
+			{
+				restartPosition();
+				spawn(g);
+			}
+		}
+	}
+	public void restartPosition()
+	{
+		for(int x=0;x<numberOfEnemies;x++)
+		{
+			posX[x] = r.nextInt(640-8);
+			posY[x] = 8;
+			boundingBox[x].setX(posX[x]);
+			boundingBox[x].setY(posY[x]);
 		}
 	}
 

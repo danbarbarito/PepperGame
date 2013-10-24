@@ -22,6 +22,10 @@ public class Logic {
 		if(collidesWithEnemy(player, enemy))
 		{
 			playerHealth -= 1;
+			if(playerHealth < 0)
+			{
+				playerHealth = 0;
+			}
 			System.out.println("Health: " + playerHealth);
 		}
 		

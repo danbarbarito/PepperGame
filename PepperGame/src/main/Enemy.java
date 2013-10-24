@@ -70,6 +70,7 @@ public class Enemy {
 	{
 		for(int x=0;x<numberOfEnemies;x++)
 		{
+			enemy[x].setAlpha(255);
 			posX[x] = r.nextInt(640-8);
 			posY[x] = r.nextInt(40);
 			boundingBox[x].setX(posX[x]);

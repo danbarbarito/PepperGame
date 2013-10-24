@@ -15,7 +15,7 @@ public class Enemy {
 	public Enemy()
 	{
 		r = new Random();
-		numberOfEnemies = 20;
+		numberOfEnemies = 15;
 		posX = new int[numberOfEnemies];
 		posY = new int[numberOfEnemies];
 		boundingBox = new Rectangle[numberOfEnemies];

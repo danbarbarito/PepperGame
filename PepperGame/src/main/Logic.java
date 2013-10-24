@@ -9,7 +9,7 @@ public class Logic {
 	//CHANGE HEALTH TO GPA
 	//F's FALL FROM SKY
 	//EACH F CAUSES THE LOSS OF .1 GPA
-	//Some A's will fall and cause your GPA to go up
+	//Some A's will appear in the middle area and cause your GPA to go up
 	public int playerHealth;
 	
 	public Logic()

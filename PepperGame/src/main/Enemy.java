@@ -15,7 +15,7 @@ public class Enemy {
 	public Enemy()
 	{
 		r = new Random();
-		numberOfEnemies = 10;
+		numberOfEnemies = 20;
 		posX = new int[numberOfEnemies];
 		posY = new int[numberOfEnemies];
 		boundingBox = new Rectangle[numberOfEnemies];
@@ -24,7 +24,7 @@ public class Enemy {
 			for(int x=0;x<numberOfEnemies;x++)
 			{
 				posX[x] = r.nextInt(640-8);
-				posY[x] = 8;
+				posY[x] = r.nextInt(40);
 				boundingBox[x] = new Rectangle(posX[x], posY[x], 16, 16);
 				enemy[x] = new Image("data/enemy.png");
 			}
@@ -57,7 +57,7 @@ public class Enemy {
 		fall();
 		for(int x=0;x<numberOfEnemies;x++)
 		{
-			if(posY[x] >= 480)
+			if(posY[x] >= 488)
 			{
 				restartPosition();
 				spawn(g);
@@ -69,7 +69,7 @@ public class Enemy {
 		for(int x=0;x<numberOfEnemies;x++)
 		{
 			posX[x] = r.nextInt(640-8);
-			posY[x] = 8;
+			posY[x] = r.nextInt(40);
 			boundingBox[x].setX(posX[x]);
 			boundingBox[x].setY(posY[x]);
 		}

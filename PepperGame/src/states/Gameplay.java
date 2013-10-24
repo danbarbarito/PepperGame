@@ -66,7 +66,7 @@ public class Gameplay extends BasicGameState{
 		//Input
 		input(container, g);
 		//Set camera scale
-    	camera.scale(g, width, height);
+    	//camera.scale(g, width, height);
     	//Draw background
     	background.draw(0,0,width,height);
     	//Move and render particles

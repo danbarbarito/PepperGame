@@ -57,7 +57,7 @@ public class Enemy {
 		fall();
 		for(int x=0;x<numberOfEnemies;x++)
 		{
-			if(posY[x] >= 400)
+			if(posY[x] >= 480)
 			{
 				restartPosition();
 				spawn(g);

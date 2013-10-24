@@ -21,6 +21,7 @@ public class Gameplay extends BasicGameState{
     public Particles pe;
     public Enemy enemy;
 	public Logic logic;
+	public Text text;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -35,6 +36,7 @@ public class Gameplay extends BasicGameState{
     	pe = new Particles();
     	enemy = new Enemy();
     	logic = new Logic();
+    	text = new Text();
 	}
 	
 	
@@ -75,9 +77,9 @@ public class Gameplay extends BasicGameState{
     	//Draw character
     	character.draw();
     	//Draw Enemies
-    	//enemy.spawn(g);
-    	//enemy.fall();
     	enemy.activate(g);
+    	//Display GPA
+    	text.draw(g, "GPA: " + logic.getGPA(character, enemy), 10, 50);
     	g.resetTransform();
 		
 	}

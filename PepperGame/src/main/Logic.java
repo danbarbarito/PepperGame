@@ -1,7 +1,7 @@
 package main;
 import org.newdawn.slick.geom.Shape;
-
 import main.*;
+import java.text.DecimalFormat;;
 
 public class Logic {
 
@@ -10,29 +10,33 @@ public class Logic {
 	//F's FALL FROM SKY
 	//EACH F CAUSES THE LOSS OF .1 GPA
 	//Some A's will appear in the middle area and cause your GPA to go up
-	public int playerHealth;
-	
+	public double gpa;
+	public DecimalFormat df;
+	public String gpaString;
 	public Logic()
 	{
-		playerHealth = 100;
+		df = new DecimalFormat("0.0");
+		gpa = 4.0;
 	}
 	
 	public void logic(Player player, Enemy enemy)
 	{
-		loseHealth(player, enemy);
+		getGPA(player, enemy);
 	}
 
-	public void loseHealth(Player player, Enemy enemy)
+	public String getGPA(Player player, Enemy enemy)
 	{
 		if(collidesWithEnemy(player, enemy))
 		{
-			playerHealth -= 1;
-			if(playerHealth < 0)
+			gpa -= .1;
+			if(gpa < 0)
 			{
-				playerHealth = 0;
+				gpa = 0;
 			}
-			System.out.println("Health: " + playerHealth);
+			//System.out.println("GPA: " + df.format(gpa));
+			return df.format(gpa);
 		}
+		return df.format(gpa);
 		
 	}
 	

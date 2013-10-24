@@ -12,10 +12,12 @@ public class Enemy {
 	public Image[] enemy;
 	public int numberOfEnemies;
 	public Rectangle[] boundingBox;
+	public int speed;
 	public Enemy()
 	{
 		r = new Random();
 		numberOfEnemies = 15;
+		speed = 7;
 		posX = new int[numberOfEnemies];
 		posY = new int[numberOfEnemies];
 		boundingBox = new Rectangle[numberOfEnemies];
@@ -46,8 +48,8 @@ public class Enemy {
 	{
 		for(int x=0;x<numberOfEnemies;x++)
 		{
-			posY[x]+= 7;
-			boundingBox[x].setY(boundingBox[x].getY()+7);
+			posY[x]+= speed;
+			boundingBox[x].setY(boundingBox[x].getY()+speed);
 		}
 	}
 	

@@ -15,11 +15,11 @@ public class Player{
 	public Rectangle boundingBox;
 	public Player(String fn) throws SlickException{
 		image = new Image(fn);
-		startingPosX = 400;
-		startingPosY = 200;
+		startingPosX = 330;
+		startingPosY = 472;
 		posX = startingPosX;
 		posY = startingPosY;
-		speed = 3;
+		speed = 5;
 		boundingBox = new Rectangle(posX, posY, 32, 32);
 	}
 	

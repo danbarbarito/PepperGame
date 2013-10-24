@@ -8,7 +8,7 @@ public class PepperGame extends StateBasedGame {
     static int height = 480;
     static boolean fullscreen = false;
     static boolean showFPS = true;
-    static String title = "#1 Game NA";
+    static String title = "Daniel Barbarito and Michael Vessia";
     static int fpslimit = 60;
     
     public PepperGame(String title) {

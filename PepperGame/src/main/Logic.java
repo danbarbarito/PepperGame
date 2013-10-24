@@ -5,6 +5,11 @@ import main.*;
 
 public class Logic {
 
+	
+	//CHANGE HEALTH TO GPA
+	//F's FALL FROM SKY
+	//EACH F CAUSES THE LOSS OF .1 GPA
+	
 	public int playerHealth;
 	
 	public Logic()

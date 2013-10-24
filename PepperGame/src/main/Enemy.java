@@ -25,7 +25,6 @@ public class Enemy {
 			{
 				posX[x] = r.nextInt(640-8);
 				posY[x] = 8;
-				//change here
 				boundingBox[x] = new Rectangle(posX[x], posY[x], 16, 16);
 				enemy[x] = new Image("data/enemy.png");
 			}
@@ -47,6 +46,7 @@ public class Enemy {
 		for(int x=0;x<numberOfEnemies;x++)
 		{
 			posY[x]+= 1;
+			boundingBox[x].setY(boundingBox[x].getY()+1);
 		}
 	}
 

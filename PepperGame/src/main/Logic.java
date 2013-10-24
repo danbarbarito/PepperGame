@@ -1,8 +1,8 @@
 package main;
 import org.newdawn.slick.geom.Shape;
 import main.*;
-import java.text.DecimalFormat;;
-
+import java.text.DecimalFormat;
+import org.newdawn.slick.*;
 public class Logic {
 
 	
@@ -13,10 +13,12 @@ public class Logic {
 	public double gpa;
 	public DecimalFormat df;
 	public String gpaString;
+	public Text text;
 	public Logic()
 	{
-		df = new DecimalFormat("0.0");
-		gpa = 4.0;
+		df = new DecimalFormat("0.00");
+		gpa = 4.00;
+		text = new Text();
 	}
 	
 	public void logic(Player player, Enemy enemy)
@@ -24,20 +26,26 @@ public class Logic {
 		getGPA(player, enemy);
 	}
 
-	public String getGPA(Player player, Enemy enemy)
+	public void getGPA(Player player, Enemy enemy)
 	{
 		if(collidesWithEnemy(player, enemy))
 		{
-			gpa -= .1;
-			if(gpa < 0)
-			{
-				gpa = 0;
-			}
-			//System.out.println("GPA: " + df.format(gpa));
-			return df.format(gpa);
+			gpa -= .03;
 		}
-		return df.format(gpa);
 		
+		
+	}
+	public void displayGPA(Graphics g, Player player, Enemy enemy)
+	{
+		getGPA(player, enemy);
+		if(gpa <= 0)
+		{
+			text.draw(g, "FAILURE!", 10, 50);
+		}
+		else
+		{
+			text.draw(g, "GPA: " + df.format(gpa), 10, 50);
+		}
 	}
 	
 	public boolean collidesWithEnemy(Player player, Enemy enemy)

@@ -78,9 +78,8 @@ public class Gameplay extends BasicGameState{
     	character.draw();
     	//Draw Enemies
     	enemy.activate(g);
-    	
     	//Display GPA
-    	text.draw(g, "GPA: " + logic.getGPA(character, enemy), 10, 50);
+    	logic.displayGPA(g, character, enemy);
     	g.resetTransform();
 		
 	}

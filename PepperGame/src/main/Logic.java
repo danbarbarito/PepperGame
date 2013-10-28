@@ -38,6 +38,16 @@ public class Logic {
 		
 		
 	}
+	
+	public void getGPA2(Player player, Buffs aBuff)
+	{
+		if(collidesWithBuff(player, aBuff))
+		{
+			gpa += 1;
+		}
+		
+		}
+	
 	public void displayGPA(Graphics g, Player player, Enemy enemy)
 	{
 		getGPA(player, enemy);
@@ -64,12 +74,33 @@ public class Logic {
 				} catch (SlickException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				} 
 				return true;
 			}
 		}
 
 		return false;	
 	}
-	
+
+	public boolean collidesWithBuff(Player player, Buffs aBuff)
+	{
+		for(int x=0;x<1;x++)
+		{
+			if(player.boundingBox.intersects(aBuff.boundingBox[1]))
+			{
+				
+					try {
+						aBuff.removeABuff(x);
+					} catch (SlickException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				return true;
+		
+			}
+		}
+		return false;
+	}
+			
 }
+

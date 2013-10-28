@@ -22,6 +22,7 @@ public class Gameplay extends BasicGameState{
     public Enemy enemy;
 	public Logic logic;
 	public Text text;
+	public Buffs aBuff;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -35,6 +36,7 @@ public class Gameplay extends BasicGameState{
     	camera = new Camera(character);
     	pe = new Particles();
     	enemy = new Enemy();
+    	aBuff = new Buffs();
     	logic = new Logic();
     	text = new Text();
 	}
@@ -78,6 +80,7 @@ public class Gameplay extends BasicGameState{
     	character.draw();
     	//Draw Enemies
     	enemy.activate(g);
+    	aBuff.activate(g);
     	//Display GPA
     	logic.displayGPA(g, character, enemy);
     	g.resetTransform();

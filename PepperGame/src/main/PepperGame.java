@@ -12,7 +12,7 @@ public class PepperGame extends StateBasedGame {
     static int fpslimit = 60;
     
     public PepperGame(String title) {
-        super(title);
+        super(title);	
     }
  
     

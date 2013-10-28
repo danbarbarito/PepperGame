@@ -33,7 +33,7 @@ public class Logic {
 	{
 		if(collidesWithEnemy(player, enemy))
 		{
-			gpa -= .09;
+			gpa -= .14;
 		}
 		
 		

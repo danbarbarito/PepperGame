@@ -62,6 +62,7 @@ public class Logic {
 		{
 			gpa = 0;
 			text.draw(g, "FAILURE!", 10, 50);
+			
 		}
 		else
 		{

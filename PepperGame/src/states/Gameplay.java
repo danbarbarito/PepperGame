@@ -5,6 +5,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import java.text.DecimalFormat;
 
 public class Gameplay extends BasicGameState{
 	
@@ -25,7 +26,8 @@ public class Gameplay extends BasicGameState{
 	public Text text;
 	public Buffs aBuff;
 	public Music mainMusic;
-
+	public StopWatch s;
+	public DecimalFormat df;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -44,6 +46,9 @@ public class Gameplay extends BasicGameState{
     	text = new Text();
     	mainMusic = new Music("data/theme.ogg");
     	mainMusic.loop();
+    	s = new StopWatch();
+    	df = new DecimalFormat("0.00");
+    	s.start();
 	}
 	
 	
@@ -72,6 +77,7 @@ public class Gameplay extends BasicGameState{
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		
 		//Input
 		input(container, g);
 		//Set camera scale
@@ -103,8 +109,17 @@ public class Gameplay extends BasicGameState{
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
     	pe.update(delta);
-
+    	if(logic.gpa <= 0)
+    	{
+    		container.exit();
+    		gameEnd();
+    	}
 		
+	}
+	public void gameEnd()
+	{
+		s.stop();
+		System.out.println("You lasted " + s.getElapsedTime()/1000 + " seconds.");
 	}
 
 	@Override

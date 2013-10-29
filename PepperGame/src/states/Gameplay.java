@@ -2,6 +2,7 @@ package states;
 
 import main.*;
 import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -78,7 +79,12 @@ public class Gameplay extends BasicGameState{
     	//Draw background
     	background.draw(0,0,width,height);
     	//Move and render particles
-    	pe.setPosition(character.posX + character.image.getWidth()/2, character.posY + character.image.getHeight()/2);
+    	pe.setPositionPlayer(character.posX + character.image.getWidth()/2, character.posY + character.image.getHeight()/2);
+    	//Set particles on buffs
+    	for(int x=0;x<1;x++)
+		{
+    		pe.setPositionBuff(aBuff.posX[x] + aBuff.aBuff[x].getWidth()/2, aBuff.posY[x] + aBuff.aBuff[x].getHeight()/2);
+		}
     	pe.render();
     	//Draw character
     	character.draw();

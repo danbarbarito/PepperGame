@@ -53,14 +53,15 @@ public class Logic {
 	public void displayGPA(Graphics g, Player player, Enemy enemy)
 	{
 		getGPA(player, enemy);
-		if(gpa <= 0)
-		{
-			text.draw(g, "FAILURE!", 10, 50);
-		}
 		if(gpa >= 4)
 		{
 			gpa = 4;
 			text.draw(g, "GPA: " + df.format(gpa), 10, 50);
+		}
+		if(gpa <= 0)
+		{
+			gpa = 0;
+			text.draw(g, "FAILURE!", 10, 50);
 		}
 		else
 		{

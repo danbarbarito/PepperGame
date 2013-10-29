@@ -51,7 +51,9 @@ public class Buffs {
 	public void removeABuff(int x) throws SlickException
 	{
 		boundingBox[x].setLocation(-100, -100);
-		aBuff[x].setAlpha(0);
+		posX[x] = -100;
+		posY[x] = -100;
+		aBuff[x].destroy();
 	}
 
 

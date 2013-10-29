@@ -23,6 +23,8 @@ public class Gameplay extends BasicGameState{
 	public Logic logic;
 	public Text text;
 	public Buffs aBuff;
+	public Music mainMusic;
+
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -39,6 +41,8 @@ public class Gameplay extends BasicGameState{
     	aBuff = new Buffs();
     	logic = new Logic();
     	text = new Text();
+    	mainMusic = new Music("data/theme.ogg");
+    	mainMusic.loop();
 	}
 	
 	

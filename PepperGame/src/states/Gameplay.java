@@ -85,6 +85,8 @@ public class Gameplay extends BasicGameState{
 		{
     		pe.setPositionBuff(aBuff.posX[x] + aBuff.aBuff[x].getWidth()/2, aBuff.posY[x] + aBuff.aBuff[x].getHeight()/2);
 		}
+    	//Set Background Particle Position
+    	pe.setPositionBackground(width/2, -16);
     	pe.render();
     	//Draw character
     	character.draw();

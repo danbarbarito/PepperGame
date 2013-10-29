@@ -52,7 +52,7 @@ public class Gameplay extends BasicGameState{
     	mouseX = input.getAbsoluteMouseX();
     	mouseY = input.getAbsoluteMouseY();
     	character.move(input);
-    	logic.logic(character, enemy);
+    	logic.logic(character, enemy, aBuff);
     }
     
     @Override

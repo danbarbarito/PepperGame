@@ -17,6 +17,7 @@ public class Logic {
 	public DecimalFormat df;
 	public String gpaString;
 	public Text text;
+	public Buffs aBuff;
 	public Logic()
 	{
 		df = new DecimalFormat("0.00");
@@ -24,9 +25,11 @@ public class Logic {
 		text = new Text();
 	}
 	
-	public void logic(Player player, Enemy enemy)
+	public void logic(Player player, Enemy enemy, Buffs aBuff)
 	{
 		getGPA(player, enemy);
+		getGPA2(player, aBuff);
+		
 	}
 
 	public void getGPA(Player player, Enemy enemy)
@@ -35,7 +38,6 @@ public class Logic {
 		{
 			gpa -= .14;
 		}
-		
 		
 	}
 	
@@ -54,6 +56,11 @@ public class Logic {
 		if(gpa <= 0)
 		{
 			text.draw(g, "FAILURE!", 10, 50);
+		}
+		if(gpa >= 4)
+		{
+			gpa = 4;
+			text.draw(g, "GPA: " + df.format(gpa), 10, 50);
 		}
 		else
 		{
@@ -82,11 +89,12 @@ public class Logic {
 		return false;	
 	}
 
+
 	public boolean collidesWithBuff(Player player, Buffs aBuff)
 	{
 		for(int x=0;x<1;x++)
 		{
-			if(player.boundingBox.intersects(aBuff.boundingBox[1]))
+			if(player.boundingBox.intersects(aBuff.boundingBox[x]))
 			{
 				
 					try {

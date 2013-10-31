@@ -24,8 +24,8 @@ public class Particles {
 		xmlFile = new File("data/emitter.xml");
 		xmlFile2 = new File("data/emitter2.xml");
 		ps = new ParticleSystem("data/particle.png");
-		ps2 = new ParticleSystem("data/particle.png");
-		ps3 = new ParticleSystem("data/particle.png");
+		ps2 = new ParticleSystem("data/particle.png", 1000);
+		ps3 = new ParticleSystem("data/particle.png", 1000);
 		em = new ConfigurableEmitter("Basic");
 		em2 = new ConfigurableEmitter("Background");
 		

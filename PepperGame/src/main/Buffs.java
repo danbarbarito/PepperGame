@@ -13,7 +13,6 @@ public class Buffs {
 	public Buffs()
 	{
 		r = new Random();
-
 		posX = new int[1];
 		posY = new int[1];
 		boundingBox = new Rectangle[1];
@@ -39,13 +38,13 @@ public class Buffs {
 			g.drawImage(aBuff[x], posX[x], posY[x]);
 		}
 	}
-	
-	
-	
+
+
+
 	public void activate(Graphics g)
 	{
 		spawn(g);
-		
+
 	}
 
 	public void removeABuff(int x) throws SlickException
@@ -55,6 +54,20 @@ public class Buffs {
 		posY[x] = -100;
 		aBuff[x].destroy();
 	}
+	public void restartPosition()
+	{
+		try {
+			for(int x=0;x<1;x++)
+			{
+				posX[x] = r.nextInt(640-8);
+				posY[x] = r.nextInt(480-8);
+				boundingBox[x] = new Rectangle(posX[x], posY[x], 32, 32);
+				aBuff[x] = new Image("data/aBuff.png");
+			}
+		} catch (SlickException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 
-
+		}
+	}
 }

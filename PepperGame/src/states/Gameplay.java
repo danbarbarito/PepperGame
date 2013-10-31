@@ -15,7 +15,7 @@ public class Gameplay extends BasicGameState{
     static boolean showFPS = true;
     static String title = "#1 Game NA";
     static int fpslimit = 60;
-    private Player character;
+    public Player character;
     private int mouseX, mouseY;
     private String osName;
     private Camera camera;
@@ -58,7 +58,6 @@ public class Gameplay extends BasicGameState{
     	mouseX = input.getAbsoluteMouseX();
     	mouseY = input.getAbsoluteMouseY();
     	character.move(input);
-    	logic.logic(character, enemy, aBuff);
     }
     
     @Override
@@ -80,6 +79,8 @@ public class Gameplay extends BasicGameState{
 		
 		//Input
 		input(container, g);
+		//Logic
+		logic.logic(character, enemy, aBuff, s.getElapsedTimeSecs());
 		//Set camera scale
     	//camera.scale(g, width, height);
     	//Draw background
@@ -119,7 +120,7 @@ public class Gameplay extends BasicGameState{
 	public void gameEnd()
 	{
 		s.stop();
-		System.out.println("You lasted " + s.getElapsedTime()/1000 + " seconds.");
+		System.out.println("You lasted " + s.getElapsedTimeSecs() + " seconds.");
 	}
 
 	@Override

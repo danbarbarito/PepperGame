@@ -3,7 +3,9 @@ import org.newdawn.slick.geom.Shape;
 import main.*;
 import java.text.DecimalFormat;
 import org.newdawn.slick.*;
-public class Logic {
+
+import states.Gameplay;
+public class Logic{
 
 	
 	//CHANGE HEALTH TO GPA
@@ -18,18 +20,22 @@ public class Logic {
 	public String gpaString;
 	public Text text;
 	public Buffs aBuff;
+	public long time;
+	private Gameplay gp;
+	public long timeBuffIsUsed;
 	public Logic()
 	{
 		df = new DecimalFormat("0.00");
 		gpa = 4.00;
 		text = new Text();
+		gp = new Gameplay();
 	}
 	
-	public void logic(Player player, Enemy enemy, Buffs aBuff)
+	public void logic(Player player, Enemy enemy, Buffs aBuff, long t)
 	{
+		time = t;
 		getGPA(player, enemy);
 		getGPA2(player, aBuff);
-		
 	}
 
 	public void getGPA(Player player, Enemy enemy)
@@ -101,6 +107,7 @@ public class Logic {
 				
 					try {
 						aBuff.removeABuff(x);
+						
 					} catch (SlickException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

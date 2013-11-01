@@ -44,5 +44,3 @@ public class Buffs {
 		boundingBox.setLocation(posX, posY);
 	}
 }
-
-

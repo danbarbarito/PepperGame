@@ -94,7 +94,13 @@ public class Gameplay extends BasicGameState{
 		//Move and render particles
 		pe.setPositionPlayer(character.posX + character.image.getWidth()/2, character.posY + character.image.getHeight()/2);
 		//Set particles on buffs
-		pe.setPositionBuff(aBuff.posX + aBuff.width/2, aBuff.posY + aBuff.height/2);
+		if(!buffON){
+			pe.setPositionBuff(-100,-100);
+		}
+		else
+		{
+			pe.setPositionBuff(aBuff.posX + aBuff.width/2, aBuff.posY + aBuff.height/2);
+		}
 
 		//Set Background Particle Position
 		pe.setPositionBackground(width/2, -16);
@@ -158,5 +164,3 @@ public class Gameplay extends BasicGameState{
 	}
 
 }
-
-

@@ -1,46 +1,73 @@
 package main;
-import org.lwjgl.Sys;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
-import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.Random;
 import org.newdawn.slick.*;
 public class Buffs {
 	public Random r;
-	public int posX, posY, width, height;
-	public Image aBuff;
-	public Rectangle boundingBox;
+	public int[] posX, posY;
+	public Image[] aBuff;
+	public Rectangle[] boundingBox;
 	public Buffs()
 	{
-		try{
-			r = new Random();
-			aBuff = new Image("data/aBuff.png");
-			width = aBuff.getWidth();
-			height = aBuff.getHeight();
-			boundingBox = new Rectangle(-100, -100, width, height);
+		r = new Random();
+		posX = new int[1];
+		posY = new int[1];
+		boundingBox = new Rectangle[1];
+		aBuff = new Image[100];
+		try {
+			for(int x=0;x<1;x++)
+			{
+				posX[x] = r.nextInt(640-8);
+				posY[x] = r.nextInt(480-8);
+				boundingBox[x] = new Rectangle(posX[x], posY[x], 32, 32);
+				aBuff[x] = new Image("data/aBuff.png");
+			}
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	public void render(Graphics g) {
-		g.drawImage(aBuff, posX, posY);
+
+	public void spawn(Graphics g)
+	{
+		for(int x=0;x<1;x++)
+		{
+			g.drawImage(aBuff[x], posX[x], posY[x]);
+		}
 	}
 
-	public void spawn()
+
+
+	public void activate(Graphics g)
 	{
-		posX = r.nextInt(640-8);
-		posY = r.nextInt(480-8);
-		boundingBox.setLocation(posX, posY);
+		spawn(g);
+
 	}
 
-	public void removeABuff()
+	public void removeABuff(int x) throws SlickException
 	{
-		posX = -100;
-		posY = -100;
-		boundingBox.setLocation(posX, posY);
+		boundingBox[x].setLocation(-100, -100);
+		posX[x] = -100;
+		posY[x] = -100;
+		aBuff[x].destroy();
+	}
+	public void restartPosition()
+	{
+		try {
+			for(int x=0;x<1;x++)
+			{
+				posX[x] = r.nextInt(640-8);
+				posY[x] = r.nextInt(480-8);
+				boundingBox[x] = new Rectangle(posX[x], posY[x], 32, 32);
+				aBuff[x] = new Image("data/aBuff.png");
+			}
+		} catch (SlickException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
 	}
 }

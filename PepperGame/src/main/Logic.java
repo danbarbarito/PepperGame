@@ -100,10 +100,21 @@ public class Logic{
 
 	public boolean collidesWithBuff(Player player, Buffs aBuff)
 	{
-		if(player.boundingBox.intersects(aBuff.boundingBox))
+		for(int x=0;x<1;x++)
 		{
-			aBuff.removeABuff();
-			return true;
+			if(player.boundingBox.intersects(aBuff.boundingBox[x]))
+			{
+				
+					try {
+						aBuff.removeABuff(x);
+						
+					} catch (SlickException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				return true;
+		
+			}
 		}
 		return false;
 	}

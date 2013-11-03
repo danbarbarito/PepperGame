@@ -41,7 +41,7 @@ public class Gameplay extends BasicGameState{
 		//Load images depending on Operating System
 		osName = System.getProperty("os.name");
 		//Character
-		character = new Player("data/character.png");
+		character = new Player("data/sprite.png");
 		//Background
 		background = new Image("data/background.jpg", false, Image.FILTER_NEAREST);
 		camera = new Camera(character);

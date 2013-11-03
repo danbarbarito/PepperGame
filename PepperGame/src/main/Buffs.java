@@ -6,7 +6,10 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.Random;
+
 import org.newdawn.slick.*;
+
+import states.Gameplay;
 public class Buffs {
 	public Random r;
 	public int posX, posY, width, height;
@@ -42,5 +45,6 @@ public class Buffs {
 		posX = -100;
 		posY = -100;
 		boundingBox.setLocation(posX, posY);
+		Gameplay.buffSound.play();
 	}
 }

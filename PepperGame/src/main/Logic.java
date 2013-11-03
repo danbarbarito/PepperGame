@@ -84,6 +84,7 @@ public class Logic{
 		{
 			if(player.boundingBox.intersects(enemy.boundingBox[x]))
 			{
+				Gameplay.hurtSound.play();
 				try {
 					enemy.removeEnemy(x);
 				} catch (SlickException e) {

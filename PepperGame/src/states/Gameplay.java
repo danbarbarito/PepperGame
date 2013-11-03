@@ -7,6 +7,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -29,6 +30,8 @@ public class Gameplay extends BasicGameState{
 	public Text text;
 	public Buffs aBuff;
 	public Music mainMusic;
+	public static Music hurtSound;
+	public static Music buffSound;
 	public StopWatch s;
 	public DecimalFormat df;
 	public boolean buffON; // is the buff on screen or not?
@@ -51,7 +54,10 @@ public class Gameplay extends BasicGameState{
 		logic = new Logic();
 		text = new Text();
 		mainMusic = new Music("data/theme.ogg");
-		mainMusic.loop();
+		hurtSound = new Music("data/hit.ogg");
+		buffSound = new Music("data/buff.ogg");
+		//mainMusic.loop();
+		
 		s = new StopWatch();
 		df = new DecimalFormat("0.00");
 		s.start();

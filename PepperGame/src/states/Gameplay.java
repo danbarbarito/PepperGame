@@ -63,7 +63,7 @@ public class Gameplay extends BasicGameState{
 		s.start();
 		buffON = false; // buff not on screen
 		buffDELTA = 0;
-		MAXbuffDELTA = 10000; // 10s = 10,000ms
+		MAXbuffDELTA = 25000; // 25s
 	}
 
 

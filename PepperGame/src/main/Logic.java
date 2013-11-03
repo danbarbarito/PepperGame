@@ -23,12 +23,16 @@ public class Logic{
 	public long time;
 	private Gameplay gp;
 	public long timeBuffIsUsed;
+	public double buffA_amount;
+	public double f_amount;
 	public Logic()
 	{
 		df = new DecimalFormat("0.00");
 		gpa = 4.00;
 		text = new Text();
 		gp = new Gameplay();
+		buffA_amount = .64;
+		f_amount = .14;
 	}
 	
 	public void logic(Player player, Enemy enemy, Buffs aBuff, long t)
@@ -42,7 +46,7 @@ public class Logic{
 	{
 		if(collidesWithEnemy(player, enemy))
 		{
-			gpa -= .14;
+			gpa -= f_amount;
 		}
 		
 	}
@@ -51,7 +55,7 @@ public class Logic{
 	{
 		if(collidesWithBuff(player, aBuff))
 		{
-			gpa += 1.0;
+			gpa += buffA_amount;
 		}
 		
 		}

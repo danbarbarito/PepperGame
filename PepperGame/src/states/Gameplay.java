@@ -30,8 +30,8 @@ public class Gameplay extends BasicGameState{
 	public Text text;
 	public Buffs aBuff;
 	public Music mainMusic;
-	public static Music hurtSound;
-	public static Music buffSound;
+	public static Sound hurtSound;
+	public static Sound buffSound;
 	public StopWatch s;
 	public DecimalFormat df;
 	public boolean buffON; // is the buff on screen or not?
@@ -54,9 +54,9 @@ public class Gameplay extends BasicGameState{
 		logic = new Logic();
 		text = new Text();
 		mainMusic = new Music("data/theme.ogg");
-		hurtSound = new Music("data/hit.ogg");
-		buffSound = new Music("data/buff.ogg");
-		//mainMusic.loop();
+		hurtSound = new Sound("data/hit.ogg");
+		buffSound = new Sound("data/buff.ogg");
+		mainMusic.loop();
 		
 		s = new StopWatch();
 		df = new DecimalFormat("0.00");

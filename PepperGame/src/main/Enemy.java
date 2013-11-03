@@ -16,7 +16,7 @@ public class Enemy {
 	public Enemy()
 	{
 		r = new Random();
-		numberOfEnemies = 15;
+		numberOfEnemies = 18;
 		speed = 7;
 		posX = new int[numberOfEnemies];
 		posY = new int[numberOfEnemies];

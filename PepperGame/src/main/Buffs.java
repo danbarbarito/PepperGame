@@ -19,7 +19,7 @@ public class Buffs {
 	{
 		try{
 			r = new Random();
-			aBuff = new Image("data/aBuff.png");
+			aBuff = new Image("data/aBuff2.png");
 			width = aBuff.getWidth();
 			height = aBuff.getHeight();
 			boundingBox = new Rectangle(-100, -100, width, height);

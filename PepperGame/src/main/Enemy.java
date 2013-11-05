@@ -28,7 +28,7 @@ public class Enemy {
 				posX[x] = r.nextInt(640-8);
 				posY[x] = r.nextInt(40);
 				boundingBox[x] = new Rectangle(posX[x], posY[x], 16, 16);
-				enemy[x] = new Image("data/enemy.png");
+				enemy[x] = new Image("data/enemy2.png");
 			}
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block

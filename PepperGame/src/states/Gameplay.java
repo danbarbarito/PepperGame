@@ -46,7 +46,7 @@ public class Gameplay extends BasicGameState{
 		//Character
 		character = new Player("data/sprite.png");
 		//Background
-		background = new Image("data/background.jpg", false, Image.FILTER_NEAREST);
+		background = new Image("data/background2.jpg", false, Image.FILTER_NEAREST);
 		camera = new Camera(character);
 		pe = new Particles();
 		enemy = new Enemy();

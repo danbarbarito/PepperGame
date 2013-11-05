@@ -46,7 +46,7 @@ public class Gameplay extends BasicGameState{
 		//Character
 		character = new Player("data/sprite.png");
 		//Background
-		background = new Image("data/background2.jpg", false, Image.FILTER_NEAREST);
+		background = new Image("data/background3.jpg", false, Image.FILTER_NEAREST);
 		camera = new Camera(character);
 		pe = new Particles();
 		enemy = new Enemy();
@@ -94,7 +94,8 @@ public class Gameplay extends BasicGameState{
 
 		//Input
 		input(container, g);
-
+		//Set camera scale
+		//camera.scale(g, width, height);
 		//Draw background
 		background.draw(0,0,width,height);
 		//Move and render particles
@@ -122,6 +123,8 @@ public class Gameplay extends BasicGameState{
 
 		//Display GPA
 		logic.displayGPA(g, character, enemy);
+		//Display Time
+		logic.displayTime(g);
 		g.resetTransform();
 
 	}
@@ -145,9 +148,6 @@ public class Gameplay extends BasicGameState{
 				buffON = false; // buff is now off screen
 			}
 		}
-		
-		//Set camera scale
-		//camera.scale(g, width, height);
 
 		pe.update(delta);
 		if(logic.gpa <= 0)

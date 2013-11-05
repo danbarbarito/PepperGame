@@ -21,7 +21,7 @@ public class Enemy {
 		posX = new int[numberOfEnemies];
 		posY = new int[numberOfEnemies];
 		boundingBox = new Rectangle[numberOfEnemies];
-		enemy = new Image[100];
+		enemy = new Image[numberOfEnemies];
 		try {
 			for(int x=0;x<numberOfEnemies;x++)
 			{

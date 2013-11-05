@@ -66,18 +66,23 @@ public class Logic{
 		if(gpa >= 4)
 		{
 			gpa = 4;
-			text.draw(g, "GPA: " + df.format(gpa), 10, 50);
+			text.draw(g, Color.white, "GPA:" + df.format(gpa), 10, 30);
 		}
 		if(gpa <= 0)
 		{
 			gpa = 0;
-			text.draw(g, "FAILURE!", 10, 50);
+			text.draw(g, Color.red, "FAILURE!", 10, 50);
 			
 		}
 		else
 		{
-			text.draw(g, "GPA: " + df.format(gpa), 10, 50);
+			text.draw(g, Color.white, "GPA:" + df.format(gpa), 10, 30);
 		}
+	}
+	public void displayTime(Graphics g)
+	{
+		
+		text.draw(g, Color.white, "Time:" + time + " seconds", 10, 50);
 	}
 	
 	public boolean collidesWithEnemy(Player player, Enemy enemy)

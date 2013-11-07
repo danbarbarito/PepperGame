@@ -9,6 +9,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import buffs.ABuff;
+import buffs.TutorZone;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Gameplay extends BasicGameState{
 	static boolean showFPS = true;
 	static String title = "#1 Game NA";
 	static int fpslimit = 60;
-	public Player character;
+	public Player player;
 	private int mouseX, mouseY;
 	private String osName;
 	private Camera camera;
@@ -31,14 +32,18 @@ public class Gameplay extends BasicGameState{
 	public Logic logic;
 	public Text text;
 	public ABuff aBuff;
+	public TutorZone tutorZone;
 	public Music mainMusic;
 	public static Sound hurtSound;
 	public static Sound buffSound;
 	public StopWatch s;
 	public DecimalFormat df;
-	public boolean buffON; // is the buff on screen or not?
-	public int buffDELTA; // time in ms since last buff collision
-	public int MAXbuffDELTA; // time between last buff collision and respawn
+	public boolean ABuffOn; // is the buff on screen or not?
+	public int ABuffDelta; // time in ms since last buff collision
+	public int maxABuffDelta; // time between last buff collision and respawn
+	public boolean tutorZoneOn; // is the buff on screen or not?
+	public int tutorZoneDelta; // time in ms since last buff collision
+	public int maxTutorZoneDelta; // time between last buff collision and respawn
 
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -46,26 +51,30 @@ public class Gameplay extends BasicGameState{
 		//Load images depending on Operating System
 		osName = System.getProperty("os.name");
 		//Character
-		character = new Player("data/sprite.png");
+		player = new Player("data/sprite.png");
 		//Background
 		background = new Image("data/background3.jpg", false, Image.FILTER_NEAREST);
-		camera = new Camera(character);
+		camera = new Camera(player);
 		pe = new Particles();
 		enemy = new Enemy();
 		aBuff = new ABuff();
+		tutorZone = new TutorZone();
 		logic = new Logic();
 		text = new Text();
 		mainMusic = new Music("data/theme.ogg");
 		hurtSound = new Sound("data/hit.ogg");
 		buffSound = new Sound("data/buff.ogg");
 		mainMusic.loop();
-		
 		s = new StopWatch();
 		df = new DecimalFormat("0.00");
 		s.start();
-		buffON = false; // buff not on screen
-		buffDELTA = 0;
-		MAXbuffDELTA = 25000; // 25s
+		ABuffOn = false; // buff not on screen
+		ABuffDelta = 0;
+		maxABuffDelta = 25000; // 25s
+		
+		tutorZoneOn = false; // buff not on screen
+		tutorZoneDelta = 0;
+		maxTutorZoneDelta = 5000; // 25s
 	}
 
 
@@ -74,7 +83,7 @@ public class Gameplay extends BasicGameState{
 		Input input = gc.getInput();
 		mouseX = input.getAbsoluteMouseX();
 		mouseY = input.getAbsoluteMouseY();
-		character.move(input);
+		player.move(input);
 	}
 
 	@Override
@@ -101,9 +110,9 @@ public class Gameplay extends BasicGameState{
 		//Draw background
 		background.draw(0,0,width,height);
 		//Move and render particles
-		pe.setPositionPlayer(character.posX + character.image.getWidth()/2, character.posY + character.image.getHeight()/2);
+		pe.setPositionPlayer(player.posX + player.image.getWidth()/2, player.posY + player.image.getHeight()/2);
 		//Set particles on buffs
-		if(!buffON){
+		if(!ABuffOn){
 			pe.setPositionBuff(-100,-100);
 		}
 		else
@@ -114,17 +123,21 @@ public class Gameplay extends BasicGameState{
 		//Set Background Particle Position
 		pe.setPositionBackground(width/2, -16);
 		pe.render();
-		//Draw character
-		character.draw();
 		//Draw Enemies
 		enemy.activate(g);
-		// draw buff only if it is on screen
-		if(buffON){
+		// draw ABuff only if it is on screen
+		if(ABuffOn){
 			aBuff.render(g);
 		}
-
+		//draw tutorZone only if it is on screen
+		if(tutorZoneOn)
+		{
+			tutorZone.render(g);
+		}
+		//Draw character
+		player.draw();
 		//Display GPA
-		logic.displayGPA(g, character, enemy);
+		logic.displayGPA(g, player, enemy);
 		//Display Time
 		logic.displayTime(g);
 		g.resetTransform();
@@ -134,22 +147,38 @@ public class Gameplay extends BasicGameState{
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
-		//Logic
-		logic.logic(character, enemy, aBuff, s.getElapsedTimeSecs());
-		if(!buffON){ // if buff is not on screen
-			buffDELTA += delta; // add to time since last collision
-			if(buffDELTA >= MAXbuffDELTA){ // check if a new buff is to be spawned
-				buffDELTA = 0; // reset time since last buff collision
+		//ABuff Logic
+		logic.logic(player, enemy, aBuff, s.getElapsedTimeSecs());
+		if(!ABuffOn){ // if buff is not on screen
+			ABuffDelta += delta; // add to time since last collision
+			if(ABuffDelta >= maxABuffDelta){ // check if a new buff is to be spawned
+				ABuffDelta = 0; // reset time since last buff collision
 				aBuff.spawn(); // spawn the buff on screen
-				buffON = true; // buff is on screen
+				ABuffOn = true; // buff is on screen
 			}
 		}
 		else{ // if buff is on screen
-			if(logic.collidesWithBuff(character, aBuff)){ // if player collects buff
+			if(logic.collidesWithABuff(player, aBuff)){ // if player collects buff
 				aBuff.removeABuff(); // move the buff off screen
-				buffON = false; // buff is now off screen
+				ABuffOn = false; // buff is now off screen
 			}
 		}
+		//TutorZone Logic
+		if(!tutorZoneOn){ // if buff is not on screen
+			tutorZoneDelta += delta; // add to time since last collision
+			if(tutorZoneDelta >= maxTutorZoneDelta){ // check if a new buff is to be spawned
+				tutorZoneDelta = 0; // reset time since last buff collision
+				tutorZone.spawn(); // spawn the buff on screen
+				tutorZoneOn = true; // buff is on screen
+			}
+		}
+		else{ // if buff is on screen
+			if(logic.collidesWithTutorZone(player, tutorZone)){ // if player collects buff
+				tutorZone.removeTutorZone(); // move the buff off screen
+				tutorZoneOn = false; // buff is now off screen
+			}
+		}
+
 
 		pe.update(delta);
 		if(logic.gpa <= 0)

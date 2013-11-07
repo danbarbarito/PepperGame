@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import org.newdawn.slick.*;
 
 import buffs.ABuff;
+import buffs.TutorZone;
 
 import states.Gameplay;
 public class Logic{
@@ -55,7 +56,7 @@ public class Logic{
 	
 	public void getGPA2(Player player, ABuff aBuff)
 	{
-		if(collidesWithBuff(player, aBuff))
+		if(collidesWithABuff(player, aBuff))
 		{
 			gpa += buffA_amount;
 		}
@@ -110,9 +111,18 @@ public class Logic{
 	}
 
 
-	public boolean collidesWithBuff(Player player, ABuff aBuff)
+	public boolean collidesWithABuff(Player player, ABuff aBuff)
 	{
 		if(player.boundingBox.intersects(aBuff.boundingBox))
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean collidesWithTutorZone(Player player, TutorZone tutorZone)
+	{
+		if(player.boundingBox.intersects(tutorZone.TutorZone))
 		{
 			return true;
 		}

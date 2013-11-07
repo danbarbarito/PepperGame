@@ -4,6 +4,8 @@ import main.*;
 import java.text.DecimalFormat;
 import org.newdawn.slick.*;
 
+import buffs.ABuff;
+
 import states.Gameplay;
 public class Logic{
 
@@ -19,7 +21,7 @@ public class Logic{
 	public DecimalFormat df;
 	public String gpaString;
 	public Text text;
-	public Buffs aBuff;
+	public ABuff aBuff;
 	public long time;
 	private Gameplay gp;
 	public long timeBuffIsUsed;
@@ -35,7 +37,7 @@ public class Logic{
 		f_amount = .14;
 	}
 	
-	public void logic(Player player, Enemy enemy, Buffs aBuff, long t)
+	public void logic(Player player, Enemy enemy, ABuff aBuff, long t)
 	{
 		time = t;
 		getGPA(player, enemy);
@@ -51,7 +53,7 @@ public class Logic{
 		
 	}
 	
-	public void getGPA2(Player player, Buffs aBuff)
+	public void getGPA2(Player player, ABuff aBuff)
 	{
 		if(collidesWithBuff(player, aBuff))
 		{
@@ -108,7 +110,7 @@ public class Logic{
 	}
 
 
-	public boolean collidesWithBuff(Player player, Buffs aBuff)
+	public boolean collidesWithBuff(Player player, ABuff aBuff)
 	{
 		if(player.boundingBox.intersects(aBuff.boundingBox))
 		{

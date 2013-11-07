@@ -8,6 +8,8 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import buffs.ABuff;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -28,7 +30,7 @@ public class Gameplay extends BasicGameState{
 	public Enemy enemy;
 	public Logic logic;
 	public Text text;
-	public Buffs aBuff;
+	public ABuff aBuff;
 	public Music mainMusic;
 	public static Sound hurtSound;
 	public static Sound buffSound;
@@ -50,7 +52,7 @@ public class Gameplay extends BasicGameState{
 		camera = new Camera(character);
 		pe = new Particles();
 		enemy = new Enemy();
-		aBuff = new Buffs();
+		aBuff = new ABuff();
 		logic = new Logic();
 		text = new Text();
 		mainMusic = new Music("data/theme.ogg");

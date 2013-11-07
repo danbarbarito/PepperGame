@@ -1,4 +1,4 @@
-package main;
+package buffs;
 import org.lwjgl.Sys;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
@@ -10,12 +10,12 @@ import java.util.Random;
 import org.newdawn.slick.*;
 
 import states.Gameplay;
-public class Buffs {
+public class ABuff {
 	public Random r;
 	public int posX, posY, width, height;
 	public Image aBuff;
 	public Rectangle boundingBox;
-	public Buffs()
+	public ABuff()
 	{
 		try{
 			r = new Random();

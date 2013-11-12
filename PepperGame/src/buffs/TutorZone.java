@@ -32,7 +32,7 @@ public class TutorZone {
 	}
 	public void gainGPA()
 	{
-		Gameplay.logic.gpa += .005;
+		Gameplay.logic.gpa += .002;
 	}
 	public void removeTutorZone()
 	{

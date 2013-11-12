@@ -177,6 +177,13 @@ public class Gameplay extends BasicGameState{
 				tutorZone.gainGPA(); // move the buff off screen
 				//tutorZoneOn = false; // buff is now off screen
 			}
+			tutorZoneDelta += delta;
+			if(tutorZoneDelta >= 3000)
+			{
+				tutorZoneDelta = 0;
+				tutorZone.removeTutorZone();
+				tutorZone.spawn();
+			}
 		}
 
 

@@ -14,8 +14,8 @@ public class TutorZone {
 		r = new Random();
 		posX = -100;
 		posY = -100;
-		width = 200;
-		height = 100;
+		width = 100;
+		height = 50;
 		TutorZone = new Rectangle(posX, posY, width, height);
 	}
 	public void render(Graphics g)

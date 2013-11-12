@@ -22,22 +22,22 @@ public class Gameplay extends BasicGameState{
 	static boolean showFPS = true;
 	static String title = "#1 Game NA";
 	static int fpslimit = 60;
-	public Player player;
+	public static Player player;
 	private int mouseX, mouseY;
 	private String osName;
 	private Camera camera;
 	private Image background;
 	public Particles pe;
-	public Enemy enemy;
-	public Logic logic;
-	public Text text;
-	public ABuff aBuff;
-	public TutorZone tutorZone;
+	public static Enemy enemy;
+	public static Logic logic;
+	public static Text text;
+	public static ABuff aBuff;
+	public static TutorZone tutorZone;
 	public Music mainMusic;
 	public static Sound hurtSound;
 	public static Sound buffSound;
-	public StopWatch s;
-	public DecimalFormat df;
+	public static StopWatch s;
+	public static DecimalFormat df;
 	public boolean ABuffOn; // is the buff on screen or not?
 	public int ABuffDelta; // time in ms since last buff collision
 	public int maxABuffDelta; // time between last buff collision and respawn
@@ -148,7 +148,7 @@ public class Gameplay extends BasicGameState{
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
 		//ABuff Logic
-		logic.logic(player, enemy, aBuff, s.getElapsedTimeSecs());
+		logic.logic();
 		if(!ABuffOn){ // if buff is not on screen
 			ABuffDelta += delta; // add to time since last collision
 			if(ABuffDelta >= maxABuffDelta){ // check if a new buff is to be spawned
@@ -174,8 +174,8 @@ public class Gameplay extends BasicGameState{
 		}
 		else{ // if buff is on screen
 			if(logic.collidesWithTutorZone(player, tutorZone)){ // if player collects buff
-				tutorZone.removeTutorZone(); // move the buff off screen
-				tutorZoneOn = false; // buff is now off screen
+				tutorZone.gainGPA(); // move the buff off screen
+				//tutorZoneOn = false; // buff is now off screen
 			}
 		}
 

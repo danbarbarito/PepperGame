@@ -1,6 +1,6 @@
 package buffs;
 import java.util.Random;
-
+import main.*;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 
@@ -29,6 +29,10 @@ public class TutorZone {
 	{
 		posX = r.nextInt(640-width);
 		posY = r.nextInt(480-height);
+	}
+	public void gainGPA()
+	{
+		Gameplay.logic.gpa += .01;
 	}
 	public void removeTutorZone()
 	{

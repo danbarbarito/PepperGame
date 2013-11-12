@@ -1,7 +1,6 @@
 package main;
 import org.newdawn.slick.geom.Shape;
 import main.*;
-import java.text.DecimalFormat;
 import org.newdawn.slick.*;
 
 import buffs.ABuff;
@@ -19,30 +18,21 @@ public class Logic{
 	//Extra credit
 	
 	public double gpa;
-	public DecimalFormat df;
 	public String gpaString;
-	public Text text;
-	public ABuff aBuff;
-	public long time;
-	private Gameplay gp;
 	public long timeBuffIsUsed;
 	public double buffA_amount;
 	public double f_amount;
 	public Logic()
 	{
-		df = new DecimalFormat("0.00");
 		gpa = 4.00;
-		text = new Text();
-		gp = new Gameplay();
 		buffA_amount = .64;
 		f_amount = .14;
 	}
 	
-	public void logic(Player player, Enemy enemy, ABuff aBuff, long t)
+	public void logic()
 	{
-		time = t;
-		getGPA(player, enemy);
-		getGPA2(player, aBuff);
+		getGPA(Gameplay.player, Gameplay.enemy);
+		getGPA2(Gameplay.player, Gameplay.aBuff);
 	}
 
 	public void getGPA(Player player, Enemy enemy)
@@ -69,23 +59,23 @@ public class Logic{
 		if(gpa >= 4)
 		{
 			gpa = 4;
-			text.draw(g, Color.white, "GPA:" + df.format(gpa), 10, 30);
+			Gameplay.text.draw(g, Color.white, "GPA:" + Gameplay.df.format(gpa), 10, 30);
 		}
 		if(gpa <= 0)
 		{
 			gpa = 0;
-			text.draw(g, Color.red, "FAILURE!", 10, 50);
+			Gameplay.text.draw(g, Color.red, "FAILURE!", 10, 50);
 			
 		}
 		else
 		{
-			text.draw(g, Color.white, "GPA:" + df.format(gpa), 10, 30);
+			Gameplay.text.draw(g, Color.white, "GPA:" + Gameplay.df.format(gpa), 10, 30);
 		}
 	}
 	public void displayTime(Graphics g)
 	{
 		
-		text.draw(g, Color.white, "Time:" + time + " seconds", 10, 50);
+		Gameplay.text.draw(g, Color.white, "Time:" + Gameplay.s.getElapsedTimeSecs() + " seconds", 10, 50);
 	}
 	
 	public boolean collidesWithEnemy(Player player, Enemy enemy)
@@ -127,6 +117,10 @@ public class Logic{
 			return true;
 		}
 		return false;
+	}
+	public void changeGPA(double amount)
+	{
+		gpa += amount;
 	}
 			
 }

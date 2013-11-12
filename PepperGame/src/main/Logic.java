@@ -31,31 +31,31 @@ public class Logic{
 	
 	public void logic()
 	{
-		getGPA(Gameplay.player, Gameplay.enemy);
-		getGPA2(Gameplay.player, Gameplay.aBuff);
+		getGPA();
+		getGPA2();
 	}
 
-	public void getGPA(Player player, Enemy enemy)
+	public void getGPA()
 	{
-		if(collidesWithEnemy(player, enemy))
+		if(collidesWithEnemy())
 		{
 			gpa -= f_amount;
 		}
 		
 	}
 	
-	public void getGPA2(Player player, ABuff aBuff)
+	public void getGPA2()
 	{
-		if(collidesWithABuff(player, aBuff))
+		if(collidesWithABuff())
 		{
 			gpa += buffA_amount;
 		}
 		
 		}
 	
-	public void displayGPA(Graphics g, Player player, Enemy enemy)
+	public void displayGPA(Graphics g)
 	{
-		getGPA(player, enemy);
+		getGPA();
 		if(gpa >= 4)
 		{
 			gpa = 4;
@@ -78,17 +78,17 @@ public class Logic{
 		Gameplay.text.draw(g, Color.white, "Time:" + Gameplay.s.getElapsedTimeSecs() + " seconds", 10, 50);
 	}
 	
-	public boolean collidesWithEnemy(Player player, Enemy enemy)
+	public boolean collidesWithEnemy()
 	{
 		//Check if collides
 
-		for(int x=0;x<enemy.numberOfEnemies;x++)
+		for(int x=0;x<Gameplay.enemy.numberOfEnemies;x++)
 		{
-			if(player.boundingBox.intersects(enemy.boundingBox[x]))
+			if(Gameplay.player.boundingBox.intersects(Gameplay.enemy.boundingBox[x]))
 			{
 				Gameplay.hurtSound.play();
 				try {
-					enemy.removeEnemy(x);
+					Gameplay.enemy.removeEnemy(x);
 				} catch (SlickException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -101,18 +101,18 @@ public class Logic{
 	}
 
 
-	public boolean collidesWithABuff(Player player, ABuff aBuff)
+	public boolean collidesWithABuff()
 	{
-		if(player.boundingBox.intersects(aBuff.boundingBox))
+		if(Gameplay.player.boundingBox.intersects(Gameplay.aBuff.boundingBox))
 		{
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean collidesWithTutorZone(Player player, TutorZone tutorZone)
+	public boolean collidesWithTutorZone()
 	{
-		if(player.boundingBox.intersects(tutorZone.TutorZone))
+		if(Gameplay.player.boundingBox.intersects(Gameplay.tutorZone.TutorZone))
 		{
 			return true;
 		}

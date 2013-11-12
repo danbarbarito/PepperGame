@@ -1,5 +1,6 @@
 package main;
-import states.Gameplay;
+import states.*;
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.StateBasedGame;
 public class PepperGame extends StateBasedGame {
@@ -20,6 +21,7 @@ public class PepperGame extends StateBasedGame {
 	public void initStatesList(GameContainer container) throws SlickException {
 		// TODO Auto-generated method stub
 		addState(new Gameplay());
+		addState(new Menu());
 		enterState(0);
 	}
    

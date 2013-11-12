@@ -137,7 +137,7 @@ public class Gameplay extends BasicGameState{
 		//Draw character
 		player.draw();
 		//Display GPA
-		logic.displayGPA(g, player, enemy);
+		logic.displayGPA(g);
 		//Display Time
 		logic.displayTime(g);
 		g.resetTransform();
@@ -158,7 +158,7 @@ public class Gameplay extends BasicGameState{
 			}
 		}
 		else{ // if buff is on screen
-			if(logic.collidesWithABuff(player, aBuff)){ // if player collects buff
+			if(logic.collidesWithABuff()){ // if player collects buff
 				aBuff.removeABuff(); // move the buff off screen
 				ABuffOn = false; // buff is now off screen
 			}
@@ -173,7 +173,7 @@ public class Gameplay extends BasicGameState{
 			}
 		}
 		else{ // if buff is on screen
-			if(logic.collidesWithTutorZone(player, tutorZone)){ // if player collects buff
+			if(logic.collidesWithTutorZone()){ // if player collects buff
 				tutorZone.gainGPA(); // move the buff off screen
 				//tutorZoneOn = false; // buff is now off screen
 			}
@@ -197,7 +197,7 @@ public class Gameplay extends BasicGameState{
 	@Override
 	public int getID() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 }

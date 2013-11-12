@@ -113,13 +113,20 @@ public class Gameplay extends BasicGameState{
 		pe.setPositionPlayer(player.posX + player.image.getWidth()/2, player.posY + player.image.getHeight()/2);
 		//Set particles on buffs
 		if(!ABuffOn){
-			pe.setPositionBuff(-100,-100);
+			pe.setPositionABuff(-100,-100);
 		}
 		else
 		{
-			pe.setPositionBuff(aBuff.posX + aBuff.width/2, aBuff.posY + aBuff.height/2);
+			pe.setPositionABuff(aBuff.posX + aBuff.width/2, aBuff.posY + aBuff.height/2);
 		}
-
+		//Set particles on Tutor Zone
+		if(!tutorZoneOn){
+			pe.setPositionTutorZone(-100,-100);
+		}
+		else
+		{
+			pe.setPositionTutorZone(tutorZone.posX + tutorZone.width/2, tutorZone.posY + tutorZone.height/2);
+		}
 		//Set Background Particle Position
 		pe.setPositionBackground(width/2, -16);
 		pe.render();

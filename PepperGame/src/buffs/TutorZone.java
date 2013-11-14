@@ -28,16 +28,16 @@ public class TutorZone {
 	public void spawn()
 	{
 		posX = r.nextInt(640-width);
-		posY = r.nextInt(480-height);
+		posY = r.nextInt(240-height)+240; //so it only spawns on bottom half of the screen
 	}
 	public void gainGPA()
 	{
-		Gameplay.logic.gpa += .002;
+		Gameplay.logic.gpa += .003;
 	}
 	public void removeTutorZone()
 	{
 		posX = -100;
 		posY = -100;
-		Gameplay.buffSound.play();
+		Gameplay.tutorZoneSpawnSound.play();
 	}
 }

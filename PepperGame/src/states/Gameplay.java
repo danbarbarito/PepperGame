@@ -33,9 +33,10 @@ public class Gameplay extends BasicGameState{
 	public static Text text;
 	public static ABuff aBuff;
 	public static TutorZone tutorZone;
-	public Music mainMusic;
+	//public Music mainMusic;
 	public static Sound hurtSound;
 	public static Sound buffSound;
+	public static Sound tutorSpawnSound;
 	public static StopWatch s;
 	public static DecimalFormat df;
 	public boolean ABuffOn; // is the buff on screen or not?
@@ -61,10 +62,11 @@ public class Gameplay extends BasicGameState{
 		tutorZone = new TutorZone();
 		logic = new Logic();
 		text = new Text();
-		mainMusic = new Music("data/theme.ogg");
+		//mainMusic = new Music("data/theme.ogg");
 		hurtSound = new Sound("data/hit.ogg");
 		buffSound = new Sound("data/buff.ogg");
-		mainMusic.loop();
+		tutorSpawnSound = new Sound("TutorSpawnSound.ogg");
+		//mainMusic.loop();
 		s = new StopWatch();
 		df = new DecimalFormat("0.00");
 		s.start();
@@ -185,7 +187,7 @@ public class Gameplay extends BasicGameState{
 				//tutorZoneOn = false; // buff is now off screen
 			}
 			tutorZoneDelta += delta;
-			if(tutorZoneDelta >= 3000)
+			if(tutorZoneDelta >= 5000) //time between tutoring zone respawnsd
 			{
 				tutorZoneDelta = 0;
 				tutorZone.removeTutorZone();

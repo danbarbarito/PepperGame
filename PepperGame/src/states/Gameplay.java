@@ -65,7 +65,7 @@ public class Gameplay extends BasicGameState{
 		//mainMusic = new Music("data/theme.ogg");
 		hurtSound = new Sound("data/hit.ogg");
 		buffSound = new Sound("data/buff.ogg");
-		tutorSpawnSound = new Sound("TutorSpawnSound.ogg");
+		tutorSpawnSound = new Sound("data/TutorSpawnSound.ogg");
 		//mainMusic.loop();
 		s = new StopWatch();
 		df = new DecimalFormat("0.00");

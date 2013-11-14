@@ -31,7 +31,7 @@ public class PepperGame extends StateBasedGame {
         app.setSmoothDeltas(true);
         app.setTargetFrameRate(fpslimit);
         app.setShowFPS(showFPS);
-        app.setVSync(true);
+       // app.setVSync(true); // why do we need vsync?
         app.setAlwaysRender(true);
         app.start();
     }

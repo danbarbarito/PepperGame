@@ -32,12 +32,12 @@ public class TutorZone {
 	}
 	public void gainGPA()
 	{
-		Gameplay.logic.gpa += .003;
+		Gameplay.logic.gpa += .002;
 	}
 	public void removeTutorZone()
 	{
 		posX = -100;
 		posY = -100;
-		Gameplay.tutorZoneSpawnSound.play();
+		Gameplay.tutorSpawnSound.play();
 	}
 }

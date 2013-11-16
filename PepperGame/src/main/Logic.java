@@ -26,7 +26,7 @@ public class Logic{
 	{
 		gpa = 4.00;
 		buffA_amount = .64;
-		f_amount = .14;
+		f_amount = .28;
 	}
 	
 	public void logic()

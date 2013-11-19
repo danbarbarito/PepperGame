@@ -15,13 +15,14 @@ public class PepperGame extends StateBasedGame {
     public PepperGame(String title) {
         super(title);	
     }
-    
+
     
 	@Override
 	public void initStatesList(GameContainer container) throws SlickException {
 		// TODO Auto-generated method stub
 		addState(new Gameplay());
 		addState(new Menu());
+		addState(new Loss());
 		enterState(0);
 		
 	}

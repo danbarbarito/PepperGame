@@ -21,7 +21,7 @@ public class Loss extends BasicGameState{
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) {
 		text.draw(g, Color.white, "You lose", 50, 100);
-		text.draw(g, Color.white, "You lasted [insert stopwatch here]", 50, 120);
+		text.draw(g, Color.white, "You lasted " + Gameplay.s.getElapsedTimeSecs() + " seconds.", 50, 120);
 	
 	}
 	

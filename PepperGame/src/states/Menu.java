@@ -36,11 +36,11 @@ public class Menu extends BasicGameState{
 			throws SlickException {
 		// TODO Auto-generated method stub
 		input = container.getInput();
-		if(input.isKeyDown(input.KEY_1))
+		if(input.isKeyDown(input.KEY_1) || input.isKeyDown(input.KEY_NUMPAD1) || input.isKeyDown(input.KEY_END))
 		{
 			game.enterState(1);
 		}
-		if(input.isKeyDown(input.KEY_2))
+		if(input.isKeyDown(input.KEY_2) || input.isKeyDown(input.KEY_NUMPAD2) || input.isKeyDown(input.KEY_DOWN))
 		{
 			container.exit();
 		}

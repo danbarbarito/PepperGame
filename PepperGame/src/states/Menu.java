@@ -25,8 +25,7 @@ public class Menu extends BasicGameState{
 		// TODO Auto-generated method stub
 		text.draw(g, Color.white, "Best Game NA", 50, 10);
 		text.draw(g, Color.gray, "1. Play Game", 50, 100);
-		text.draw(g, Color.gray, "2. Quit", 50, 120);
-		
+		text.draw(g, Color.gray, "2. Quit", 50, 120);	
 		
 		
 	}

@@ -17,7 +17,7 @@ public class Logic{
 	//Tutor zones passively give GPA
 	//Extra credit
 	
-	public double gpa;
+	public static double gpa;
 	public String gpaString;
 	public long timeBuffIsUsed;
 	public double buffA_amount;

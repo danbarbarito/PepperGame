@@ -39,10 +39,10 @@ public class Gameplay extends BasicGameState{
 	public static Sound tutorSpawnSound;
 	public static StopWatch s;
 	public static DecimalFormat df;
-	public boolean ABuffOn; // is the buff on screen or not?
+	public static boolean ABuffOn; // is the buff on screen or not?
 	public int ABuffDelta; // time in ms since last buff collision
 	public int maxABuffDelta; // time between last buff collision and respawn
-	public boolean tutorZoneOn; // is the buff on screen or not?
+	public static boolean tutorZoneOn; // is the buff on screen or not?
 	public int tutorZoneDelta; // time in ms since last buff collision
 	public int maxTutorZoneDelta; // time between last buff collision and respawn
 

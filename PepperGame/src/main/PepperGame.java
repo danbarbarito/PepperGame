@@ -23,6 +23,7 @@ public class PepperGame extends StateBasedGame {
 		addState(new Gameplay());
 		addState(new Menu());
 		enterState(0);
+		
 	}
    
     public static void main(String[] args) throws SlickException {

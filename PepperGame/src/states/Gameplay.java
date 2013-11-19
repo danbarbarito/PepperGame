@@ -199,7 +199,7 @@ public class Gameplay extends BasicGameState{
 		pe.update(delta);
 		if(logic.gpa <= 0)
 		{
-			container.exit();
+			game.enterState(2);
 			gameEnd();
 		}
 

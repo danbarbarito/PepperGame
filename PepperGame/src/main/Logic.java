@@ -64,7 +64,6 @@ public class Logic{
 		if(gpa <= 0)
 		{
 			gpa = 0;
-			Gameplay.text.draw(g, Color.red, "FAILURE!", 10, 50);
 			
 		}
 		else

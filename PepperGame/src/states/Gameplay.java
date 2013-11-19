@@ -197,7 +197,7 @@ public class Gameplay extends BasicGameState{
 
 
 		pe.update(delta);
-		if(logic.gpa <= 0)
+		if(logic.gpa <= 0.00 || df.format(logic.gpa) == "0.00")
 		{
 			game.enterState(2);
 			gameEnd();

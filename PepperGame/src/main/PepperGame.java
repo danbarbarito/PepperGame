@@ -11,6 +11,7 @@ public class PepperGame extends StateBasedGame {
     static boolean showFPS = false;
     static String title = "Catchy Game Title Goes Here";
     static int fpslimit = 60;
+    public static XMLParser xml;
     
     public PepperGame(String title) {
         super(title);	
@@ -28,7 +29,8 @@ public class PepperGame extends StateBasedGame {
 	}
    
     public static void main(String[] args) throws SlickException {
-        AppGameContainer app = new AppGameContainer(new PepperGame(title));
+        xml = new XMLParser();
+    	AppGameContainer app = new AppGameContainer(new PepperGame(title));
         app.setDisplayMode(width, height, fullscreen);
         app.setSmoothDeltas(true);
         app.setTargetFrameRate(fpslimit);

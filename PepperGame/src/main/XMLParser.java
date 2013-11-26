@@ -30,7 +30,7 @@ public class XMLParser {
 				if(node.getNodeType() == Node.ELEMENT_NODE)
 				{
 					Element element  = (Element) node;
-					System.out.println("Name: " + getValue("name", element));
+					//System.out.println("Name: " + getValue("name", element));
 				}
 			}
 		}

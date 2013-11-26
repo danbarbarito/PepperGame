@@ -37,6 +37,8 @@ public class Loss extends BasicGameState{
 			Gameplay.s.reset();
 			Gameplay.tutorZoneOn = false;
 			Gameplay.ABuffOn = false;
+			Gameplay.ABuffDelta = 0;
+			Gameplay.tutorZoneDelta = 0;
 			Gameplay.s.start();
 			game.enterState(1);
 		}

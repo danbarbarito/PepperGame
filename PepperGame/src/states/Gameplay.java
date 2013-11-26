@@ -40,10 +40,10 @@ public class Gameplay extends BasicGameState{
 	public static StopWatch s;
 	public static DecimalFormat df;
 	public static boolean ABuffOn; // is the buff on screen or not?
-	public int ABuffDelta; // time in ms since last buff collision
+	public static int ABuffDelta; // time in ms since last buff collision
 	public int maxABuffDelta; // time between last buff collision and respawn
 	public static boolean tutorZoneOn; // is the buff on screen or not?
-	public int tutorZoneDelta; // time in ms since last buff collision
+	public static int tutorZoneDelta; // time in ms since last buff collision
 	public int maxTutorZoneDelta; // time between last buff collision and respawn
 
 	@Override
@@ -72,11 +72,11 @@ public class Gameplay extends BasicGameState{
 		s.start();
 		ABuffOn = false; // buff not on screen
 		ABuffDelta = 0;
-		maxABuffDelta = 25000; // 25s
+		maxABuffDelta = 15000; // 15s
 		
 		tutorZoneOn = false; // buff not on screen
 		tutorZoneDelta = 0;
-		maxTutorZoneDelta = 5000; // 25s
+		maxTutorZoneDelta = 5000; // 5s
 	}
 
 
